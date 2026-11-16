@@ -1,0 +1,14 @@
+{
+  "title": "Voxel implementation plan",
+  "acceptance": "A DICOM X-ray or MRI study opens from a double-click on Windows, and 2D viewing, MPR, 3D and every tool in the plan work end to end on real studies.",
+  "phases": {
+    "0": "Toolchain and workspace",
+    "1": "First image: 2D X-ray viewing",
+    "2": "MRI series and stack scrolling",
+    "3": "Volume building and MPR",
+    "4": "3D rendering",
+    "5": "Clinician tools and layouts",
+    "6": "Packaging and release",
+    "99": "Manual, operator only"
+  }
+}

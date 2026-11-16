@@ -1,0 +1,1 @@
+Lightweight, fast-opening DICOM viewer for X-rays and MRIs, avoiding heavy PACS software.

@@ -1,0 +1,8 @@
+# Rust build output
+/target/
+
+# Derived TODO cache (todo/README.md)
+/build/
+
+# Python bytecode from the kit scripts
+__pycache__/
