@@ -1,14 +1,14 @@
 # Voxel brand assets
 
-The "Lightbox" identity, chosen by the owner on 2026-11-17: warm charcoal and film amber, with a mark of three stacked scan slices and a cross-section cut into the top one.
+The "Lattice" identity, chosen by the owner on 2026-11-17: a cube with one bright voxel at its near corner, in the slate and signal blue of the Conclave Design System v2, so Voxel sits in the same family as the owner's other tools.
 
 ## Files
 
 | File | What it is | Use it for |
 | ---- | ---------- | ---------- |
-| `voxel-mark.svg` | The mark alone, no tile, transparent | Inside the app, beside the wordmark |
-| `voxel-icon.svg` | The app icon: the mark in its charcoal tile | 48 pixels and up |
-| `voxel-icon-small.svg` | A heavier icon without the cross-section | Under 48 pixels |
+| `voxel-mark.svg` | The cube alone, no tile, transparent | Inside the app, beside the wordmark |
+| `voxel-icon.svg` | The app icon: the cube in its slate tile | 48 pixels and up |
+| `voxel-icon-small.svg` | A heavier icon with a larger voxel | Under 48 pixels |
 | `voxel-wordmark.svg`, `voxel-wordmark-light.svg` | The wordmark for dark and for light grounds | Headers, the About window |
 | `voxel-lockup.svg`, `voxel-lockup-light.svg` | Mark and wordmark together (generated) | Documents, the README |
 | `voxel-icon-64.png`, `-192.png`, `-512.png`, `-1024.png` | Icon renders (generated) | Where SVG is not accepted |
@@ -20,24 +20,26 @@ The five hand-drawn SVG files are the sources. Everything marked generated is wr
 
 ## Colours
 
-| Name | Hex | Use |
-| ---- | --- | --- |
-| Charcoal | `#17140F` | The ground behind everything |
-| Film | `#231E16` | The icon tile and raised surfaces |
-| Deep amber | `#7A5200` | The lowest slice |
-| Mid amber | `#C48700` | The middle slice |
-| Amber | `#FFB000` | The top slice and the one accent |
-| Cream | `#FFF3D6` | Text and the wordmark on dark; the light ground |
+The names are the Conclave Design System v2 tokens; the three cube shades below signal are Voxel's own.
 
-On a light ground the amber accent is `#B37400` in the wordmark and `#8A5A00` for small text, so it keeps its contrast.
+| Name | Dark | Light | Use |
+| ---- | ---- | ----- | --- |
+| `ground` | `#131a22` | `#f2f5f8` | Behind everything |
+| `surface` | `#1b232c` | `#fcfdff` | The icon tile, panels |
+| `ink` | `#edf0f4` | `#151e27` | Text, the wordmark, the voxel's top face |
+| `signal` | `#34c8fd` | `#0075b1` | The cube's top face, the O of the wordmark, the one accent |
+| `signal-ink` | `#4bcefd` | `#006ba9` | The accent as small text |
+| Cube left | `#1a86b4` | same | The cube's left face |
+| Cube right | `#0f5778` | same | The cube's right face |
+| Voxel left, voxel right | `#a9e6fe`, `#74d8fd` | same | The bright voxel's side faces |
 
 ## Type
 
-DM Sans for text and DM Mono for figures and identifiers, both under the SIL Open Font License. The wordmark is drawn as strokes, not set in a font, so it never depends on one.
+Archivo, slightly condensed (width 88), for display; IBM Plex Sans for text; IBM Plex Mono for figures and identifiers. All three are under the SIL Open Font License. The wordmark is drawn as strokes, not set in a font, so it never depends on one.
 
 ## Rules
 
-- The wordmark's middle bar of the E is the only amber stroke; never recolour the other letters.
-- Keep clear space around the mark of at least half the height of one slice.
-- Never stretch the mark, never put it on amber, and never draw the slices without their gaps.
-- Under 48 pixels use the small icon: the cross-section does not survive at that size.
+- The hexagon O is the only signal stroke in the wordmark; never recolour the other letters.
+- Keep clear space around the mark of at least the width of the bright voxel.
+- Never stretch or rotate the cube, never put it on a signal fill, and never recolour its faces.
+- Under 48 pixels use the small icon: its voxel is larger so it survives at that size.

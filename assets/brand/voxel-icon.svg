@@ -1,22 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Voxel app icon">
-  <defs>
-    <mask id="voxel-icon-top" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
-      <rect width="256" height="256" fill="#fff"/>
-      <ellipse cx="128" cy="88" rx="27" ry="13.5" fill="#000"/>
-    </mask>
-    <mask id="voxel-icon-mid" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
-      <rect width="256" height="256" fill="#fff"/>
-      <path d="M128 53 L198 88 L128 123 L58 88 Z" fill="#000" stroke="#000" stroke-width="26" stroke-linejoin="round"/>
-    </mask>
-    <mask id="voxel-icon-low" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
-      <rect width="256" height="256" fill="#fff"/>
-      <path d="M128 93 L198 128 L128 163 L58 128 Z" fill="#000" stroke="#000" stroke-width="26" stroke-linejoin="round"/>
-    </mask>
-  </defs>
-  <rect width="256" height="256" rx="56" fill="#231E16"/>
-  <g transform="translate(128 128) scale(1.18) translate(-128 -128)">
-    <path d="M128 133 L198 168 L128 203 L58 168 Z" fill="#7A5200" stroke="#7A5200" stroke-width="8" stroke-linejoin="round" mask="url(#voxel-icon-low)"/>
-    <path d="M128 93 L198 128 L128 163 L58 128 Z" fill="#C48700" stroke="#C48700" stroke-width="8" stroke-linejoin="round" mask="url(#voxel-icon-mid)"/>
-    <path d="M128 53 L198 88 L128 123 L58 88 Z" fill="#FFB000" stroke="#FFB000" stroke-width="8" stroke-linejoin="round" mask="url(#voxel-icon-top)"/>
+  <rect width="256" height="256" rx="56" fill="#1b232c"/>
+  <g transform="translate(128 128) scale(1.1) translate(-128 -128)" stroke-width="1" stroke-linejoin="round">
+    <path d="M128 44 L200.7 86 L128 128 L55.3 86 Z" fill="#34c8fd" stroke="#34c8fd"/>
+    <path d="M55.3 86 L128 128 L128 212 L55.3 170 Z" fill="#1a86b4" stroke="#1a86b4"/>
+    <path d="M200.7 86 L200.7 170 L128 212 L128 128 Z" fill="#0f5778" stroke="#0f5778"/>
+    <path d="M128 128 L91.65 107 L128 86 L164.35 107 Z" fill="#edf0f4" stroke="#edf0f4"/>
+    <path d="M128 128 L128 170 L91.65 149 L91.65 107 Z" fill="#a9e6fe" stroke="#a9e6fe"/>
+    <path d="M128 128 L164.35 107 L164.35 149 L128 170 Z" fill="#74d8fd" stroke="#74d8fd"/>
   </g>
 </svg>

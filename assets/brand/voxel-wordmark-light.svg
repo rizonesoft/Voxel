@@ -1,10 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 544 120" role="img" aria-label="Voxel">
-  <g fill="none" stroke="#17140F" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M0 0 L42 100 L84 0"/>
-    <circle cx="168" cy="50" r="50"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -12 548 124" role="img" aria-label="Voxel">
+  <g fill="none" stroke="#151e27" stroke-width="16">
+    <path d="M0 0 L42 100 L84 0" stroke-linejoin="bevel"/>
     <path d="M252 0 L332 100 M332 0 L252 100"/>
-    <path d="M366 0 H430 M366 100 H430"/>
-    <path d="M464 0 V100 H524"/>
+    <path d="M430 0 H366 V100 H430 M366 50 H420"/>
+    <path d="M464 -8 V100 H524"/>
   </g>
-  <path d="M366 50 H420" fill="none" stroke="#B37400" stroke-width="12" stroke-linecap="round"/>
+  <path d="M168 0 L211.3 25 V75 L168 100 L124.7 75 V25 Z" fill="none" stroke="#0075b1" stroke-width="16" stroke-linejoin="round"/>
 </svg>

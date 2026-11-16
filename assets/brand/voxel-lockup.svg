@@ -1,31 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 160" role="img" aria-label="Voxel">
-  <g transform="translate(-41.6 -41.6) scale(0.95)">
-  <defs>
-    <mask id="voxel-mark-top" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
-      <rect width="256" height="256" fill="#fff"/>
-      <ellipse cx="128" cy="88" rx="27" ry="13.5" fill="#000"/>
-    </mask>
-    <mask id="voxel-mark-mid" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
-      <rect width="256" height="256" fill="#fff"/>
-      <path d="M128 53 L198 88 L128 123 L58 88 Z" fill="#000" stroke="#000" stroke-width="26" stroke-linejoin="round"/>
-    </mask>
-    <mask id="voxel-mark-low" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
-      <rect width="256" height="256" fill="#fff"/>
-      <path d="M128 93 L198 128 L128 163 L58 128 Z" fill="#000" stroke="#000" stroke-width="26" stroke-linejoin="round"/>
-    </mask>
-  </defs>
-  <path d="M128 133 L198 168 L128 203 L58 168 Z" fill="#7A5200" stroke="#7A5200" stroke-width="8" stroke-linejoin="round" mask="url(#voxel-mark-low)"/>
-  <path d="M128 93 L198 128 L128 163 L58 128 Z" fill="#C48700" stroke="#C48700" stroke-width="8" stroke-linejoin="round" mask="url(#voxel-mark-mid)"/>
-  <path d="M128 53 L198 88 L128 123 L58 88 Z" fill="#FFB000" stroke="#FFB000" stroke-width="8" stroke-linejoin="round" mask="url(#voxel-mark-top)"/>
+  <g transform="translate(-35.2 -35.2) scale(0.9)">
+  <g stroke-width="1" stroke-linejoin="round">
+    <path d="M128 44 L200.7 86 L128 128 L55.3 86 Z" fill="#34c8fd" stroke="#34c8fd"/>
+    <path d="M55.3 86 L128 128 L128 212 L55.3 170 Z" fill="#1a86b4" stroke="#1a86b4"/>
+    <path d="M200.7 86 L200.7 170 L128 212 L128 128 Z" fill="#0f5778" stroke="#0f5778"/>
+    <path d="M128 128 L91.65 107 L128 86 L164.35 107 Z" fill="#edf0f4" stroke="#edf0f4"/>
+    <path d="M128 128 L128 170 L91.65 149 L91.65 107 Z" fill="#a9e6fe" stroke="#a9e6fe"/>
+    <path d="M128 128 L164.35 107 L164.35 149 L128 170 Z" fill="#74d8fd" stroke="#74d8fd"/>
+  </g>
 </g>
   <g transform="translate(200 30)">
-  <g fill="none" stroke="#FFF3D6" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M0 0 L42 100 L84 0"/>
-    <circle cx="168" cy="50" r="50"/>
+  <g fill="none" stroke="#edf0f4" stroke-width="16">
+    <path d="M0 0 L42 100 L84 0" stroke-linejoin="bevel"/>
     <path d="M252 0 L332 100 M332 0 L252 100"/>
-    <path d="M366 0 H430 M366 100 H430"/>
-    <path d="M464 0 V100 H524"/>
+    <path d="M430 0 H366 V100 H430 M366 50 H420"/>
+    <path d="M464 -8 V100 H524"/>
   </g>
-  <path d="M366 50 H420" fill="none" stroke="#FFB000" stroke-width="12" stroke-linecap="round"/>
+  <path d="M168 0 L211.3 25 V75 L168 100 L124.7 75 V25 Z" fill="none" stroke="#34c8fd" stroke-width="16" stroke-linejoin="round"/>
 </g>
 </svg>
