@@ -1,0 +1,863 @@
+{
+ "interface": "workstation",
+ "screen": "loading",
+ "window": [
+  1440,
+  900
+ ],
+ "controls": [
+  {
+   "kind": "button",
+   "label": "Open",
+   "key": "Ctrl O",
+   "tooltip": "Open (Ctrl O)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    10,
+    46,
+    76,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Fit",
+   "key": "F",
+   "tooltip": "Fit (F)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    103,
+    46,
+    60,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Reset",
+   "key": "R",
+   "tooltip": "Reset (R)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    165,
+    46,
+    78,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Invert",
+   "key": "I",
+   "tooltip": "Invert (I)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    246,
+    46,
+    80,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Stack",
+   "key": "S",
+   "tooltip": "Stack (S)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    343,
+    46,
+    77,
+    34
+   ],
+   "fill": "rgba(52, 200, 253, 0.16)",
+   "ink": "rgb(75, 206, 253)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "MPR",
+   "key": "M",
+   "tooltip": "MPR (M)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    422,
+    46,
+    72,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "3D",
+   "key": "3",
+   "tooltip": "3D (3)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    496,
+    46,
+    62,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Length",
+   "key": "L",
+   "tooltip": "Length (L)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    575,
+    46,
+    85,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Angle",
+   "key": "A",
+   "tooltip": "Angle (A)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    661,
+    46,
+    78,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Clear",
+   "key": "Del",
+   "tooltip": "Clear (Del)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    742,
+    46,
+    75,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Layout",
+   "key": "G",
+   "tooltip": "Layout (G)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    834,
+    46,
+    84,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Link",
+   "key": "K",
+   "tooltip": "Link (K)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    920,
+    46,
+    69,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Overlay",
+   "key": "O",
+   "tooltip": "Overlay (O)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1006,
+    46,
+    89,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Tags",
+   "key": "T",
+   "tooltip": "Tags (T)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1098,
+    46,
+    72,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Export",
+   "key": "Ctrl E",
+   "tooltip": "Export (Ctrl E)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1171,
+    46,
+    83,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "More tools",
+   "key": null,
+   "tooltip": "Show or hide the clinician tools",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1265,
+    46,
+    125,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Menu",
+   "key": null,
+   "tooltip": "Menu",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1392,
+    46,
+    38,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "T1 sagittalMR · 180 images",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    12,
+    158,
+    215,
+    82
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "T2 axialMR · 36 images",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    12,
+    248,
+    215,
+    82
+   ],
+   "fill": "rgba(52, 200, 253, 0.16)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "FLAIR axialMR · 36 images",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    12,
+    338,
+    215,
+    82
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "T1 coronalTE 30 ms · 48",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    12,
+    428,
+    215,
+    82
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "LocaliserMR · 3 images2D only",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    12,
+    518,
+    215,
+    87
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  }
+ ],
+ "texts": [
+  {
+   "text": "Voxel",
+   "rect": [
+    40,
+    9,
+    35,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Phantom, Voxel · MR Brain",
+   "rect": [
+    85,
+    10,
+    154,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "– □ ×",
+   "rect": [
+    1333,
+    11,
+    95,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "Open",
+   "rect": [
+    44,
+    55,
+    31,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Fit",
+   "rect": [
+    137,
+    55,
+    15,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Reset",
+   "rect": [
+    199,
+    55,
+    33,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Invert",
+   "rect": [
+    280,
+    55,
+    35,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Stack",
+   "rect": [
+    377,
+    55,
+    32,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(75, 206, 253)"
+  },
+  {
+   "text": "MPR",
+   "rect": [
+    456,
+    55,
+    27,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "3D",
+   "rect": [
+    530,
+    55,
+    17,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Length",
+   "rect": [
+    609,
+    55,
+    40,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Angle",
+   "rect": [
+    695,
+    55,
+    33,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Clear",
+   "rect": [
+    776,
+    55,
+    30,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Layout",
+   "rect": [
+    868,
+    55,
+    39,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Link",
+   "rect": [
+    954,
+    55,
+    24,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Overlay",
+   "rect": [
+    1040,
+    55,
+    44,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Tags",
+   "rect": [
+    1132,
+    55,
+    27,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Export",
+   "rect": [
+    1205,
+    55,
+    38,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "More tools",
+   "rect": [
+    1276,
+    55,
+    62,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Phantom, Voxel",
+   "rect": [
+    14,
+    103,
+    102,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "MR Brain · 12 Nov 2026",
+   "rect": [
+    14,
+    128,
+    158,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "T1 sagittal",
+   "rect": [
+    95,
+    169,
+    64,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "MR · 180 images",
+   "rect": [
+    95,
+    191,
+    108,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "T2 axial",
+   "rect": [
+    95,
+    259,
+    47,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "MR · 36 images",
+   "rect": [
+    95,
+    281,
+    101,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "FLAIR axial",
+   "rect": [
+    95,
+    349,
+    69,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "MR · 36 images",
+   "rect": [
+    95,
+    371,
+    101,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "T1 coronal",
+   "rect": [
+    95,
+    439,
+    63,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "TE 30 ms · 48",
+   "rect": [
+    95,
+    461,
+    94,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Localiser",
+   "rect": [
+    95,
+    529,
+    54,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "MR · 3 images",
+   "rect": [
+    95,
+    553,
+    94,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "2D only",
+   "rect": [
+    101,
+    577,
+    38,
+    14
+   ],
+   "font": "IBM Plex Sans",
+   "size": "11px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Loading T2 axial · 14 of 36 images",
+   "rect": [
+    718,
+    830,
+    245,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "For review only. Not for diagnostic use.",
+   "rect": [
+    12,
+    879,
+    207,
+    15
+   ],
+   "font": "IBM Plex Sans",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "MR · 512 x 512 · 0.45 mm · DirectX 12",
+   "rect": [
+    1162,
+    879,
+    266,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  }
+ ]
+}

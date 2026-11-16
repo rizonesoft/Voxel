@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<defs>
+<radialGradient id="b" cx="50%" cy="48%" r="55%"><stop offset="0" stop-color="#9a9a9a"/><stop offset="0.7" stop-color="#6f6f6f"/><stop offset="1" stop-color="#4a4a4a"/></radialGradient>
+<radialGradient id="w" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#c9c9c9"/><stop offset="1" stop-color="#8d8d8d"/></radialGradient>
+</defs>
+<rect width="512" height="512" fill="#000"/>
+<ellipse cx="256" cy="262" rx="176" ry="212" fill="#d9d9d9"/>
+<ellipse cx="256" cy="262" rx="164" ry="200" fill="#1c1c1c"/>
+<ellipse cx="256" cy="262" rx="152" ry="188" fill="url(#b)"/>
+<path d="M256 84 V440" stroke="#2a2a2a" stroke-width="5"/>
+<ellipse cx="196" cy="238" rx="62" ry="98" fill="url(#w)" opacity="0.75"/>
+<ellipse cx="316" cy="238" rx="62" ry="98" fill="url(#w)" opacity="0.75"/>
+<path d="M240 196 C214 176 198 214 222 262 C232 282 246 282 250 262 C254 236 252 210 240 196 Z" fill="#0d0d0d"/>
+<path d="M272 196 C298 176 314 214 290 262 C280 282 266 282 262 262 C258 236 260 210 272 196 Z" fill="#0d0d0d"/>
+<ellipse cx="256" cy="318" rx="12" ry="20" fill="#111"/>
+<ellipse cx="256" cy="392" rx="74" ry="44" fill="#808080" opacity="0.8"/>
+<path d="M190 392 H322" stroke="#5a5a5a" stroke-width="3"/>
+<ellipse cx="206" cy="130" rx="26" ry="16" fill="#555" opacity="0.6"/>
+<ellipse cx="306" cy="130" rx="26" ry="16" fill="#555" opacity="0.6"/>
+</svg>

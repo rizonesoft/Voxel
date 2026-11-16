@@ -1,0 +1,348 @@
+{
+ "interface": "console",
+ "screen": "refusal",
+ "window": [
+  1440,
+  900
+ ],
+ "controls": [
+  {
+   "kind": "button",
+   "label": "More tools",
+   "key": null,
+   "tooltip": "Show or hide the clinician tools",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1189,
+    5,
+    124,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Open",
+   "key": "Ctrl O",
+   "tooltip": "Open (Ctrl O)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    53,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Fit",
+   "key": "F",
+   "tooltip": "Fit (F)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    114,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Reset",
+   "key": "R",
+   "tooltip": "Reset (R)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    162,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Lighter",
+   "key": "+",
+   "tooltip": "Lighter (+)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    223,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Darker",
+   "key": "-",
+   "tooltip": "Darker (-)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    271,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Auto brightness",
+   "key": "0",
+   "tooltip": "Auto brightness (0)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    319,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Menu",
+   "key": null,
+   "tooltip": "Menu",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    819,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Open another file",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    508,
+    512,
+    138,
+    34
+   ],
+   "fill": "rgb(52, 200, 253)",
+   "ink": "rgb(4, 17, 28)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Open folder",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    656,
+    512,
+    100,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  }
+ ],
+ "texts": [
+  {
+   "text": "Voxel",
+   "rect": [
+    66,
+    13,
+    40,
+    19
+   ],
+   "font": "Archivo",
+   "size": "17px",
+   "weight": "700",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "/",
+   "rect": [
+    116,
+    13,
+    5,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(111, 124, 138)"
+  },
+  {
+   "text": "No study",
+   "rect": [
+    131,
+    13,
+    56,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "More tools",
+   "rect": [
+    1199,
+    14,
+    62,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "– □ ×",
+   "rect": [
+    1331,
+    15,
+    95,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "This file is not a DICOM image",
+   "rect": [
+    538,
+    373,
+    246,
+    22
+   ],
+   "font": "Archivo",
+   "size": "20px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "holiday-photo.png",
+   "rect": [
+    518,
+    419,
+    133,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Voxel opens medical images in the DICOM format. Scans on a disc are usually in a folder named DICOM.",
+   "rect": [
+    508,
+    459,
+    436,
+    39
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Open another file",
+   "rect": [
+    521,
+    519,
+    112,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "600",
+   "ink": "rgb(4, 17, 28)"
+  },
+  {
+   "text": "Open folder",
+   "rect": [
+    669,
+    519,
+    74,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "For review only. Not for diagnostic use.",
+   "rect": [
+    30,
+    879,
+    207,
+    15
+   ],
+   "font": "IBM Plex Sans",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "DirectX 12",
+   "rect": [
+    1354,
+    879,
+    72,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  }
+ ]
+}

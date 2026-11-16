@@ -1,0 +1,872 @@
+{
+ "interface": "console",
+ "screen": "tags",
+ "window": [
+  1440,
+  900
+ ],
+ "controls": [
+  {
+   "kind": "button",
+   "label": "More tools",
+   "key": null,
+   "tooltip": "Show or hide the clinician tools",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1189,
+    5,
+    124,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Open",
+   "key": "Ctrl O",
+   "tooltip": "Open (Ctrl O)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    53,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Stack",
+   "key": "S",
+   "tooltip": "Stack (S)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    114,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "MPR",
+   "key": "M",
+   "tooltip": "MPR (M)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    162,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "3D",
+   "key": "3",
+   "tooltip": "3D (3)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    210,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Overlay",
+   "key": "O",
+   "tooltip": "Overlay (O)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    271,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Tags",
+   "key": "T",
+   "tooltip": "Tags (T)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    319,
+    44,
+    44
+   ],
+   "fill": "rgba(52, 200, 253, 0.16)",
+   "ink": "rgb(75, 206, 253)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Export",
+   "key": "Ctrl E",
+   "tooltip": "Export (Ctrl E)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    367,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Menu",
+   "key": null,
+   "tooltip": "Menu",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    819,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "T1 sagittal180 images",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    64,
+    79,
+    195,
+    60
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "T2 axial36 images",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    64,
+    141,
+    195,
+    60
+   ],
+   "fill": "rgba(52, 200, 253, 0.16)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "FLAIR axial36 images",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    64,
+    203,
+    195,
+    60
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "T1 coronalTE 30 ms · 48",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    64,
+    265,
+    195,
+    60
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Localiser3 images2D only",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    64,
+    327,
+    195,
+    79
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "text",
+   "label": "Search name, number or value",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": "echo",
+   "options": null,
+   "rect": [
+    1170,
+    125,
+    245,
+    34
+   ],
+   "fill": "rgb(14, 19, 26)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Copy value",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1170,
+    376,
+    95,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  }
+ ],
+ "texts": [
+  {
+   "text": "Voxel",
+   "rect": [
+    66,
+    13,
+    40,
+    19
+   ],
+   "font": "Archivo",
+   "size": "17px",
+   "weight": "700",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "/",
+   "rect": [
+    116,
+    13,
+    5,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(111, 124, 138)"
+  },
+  {
+   "text": "Phantom, Voxel / MR Brain / T2 axial",
+   "rect": [
+    131,
+    13,
+    228,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "More tools",
+   "rect": [
+    1199,
+    14,
+    62,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "– □ ×",
+   "rect": [
+    1331,
+    15,
+    95,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "Series",
+   "rect": [
+    70,
+    57,
+    44,
+    14
+   ],
+   "font": "IBM Plex Sans",
+   "size": "11px",
+   "weight": "600",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "5",
+   "rect": [
+    246,
+    57,
+    7,
+    14
+   ],
+   "font": "IBM Plex Mono",
+   "size": "11px",
+   "weight": "500",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "T1 sagittal",
+   "rect": [
+    128,
+    90,
+    64,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "180 images",
+   "rect": [
+    128,
+    112,
+    72,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "T2 axial",
+   "rect": [
+    128,
+    152,
+    47,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "36 images",
+   "rect": [
+    128,
+    174,
+    65,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "FLAIR axial",
+   "rect": [
+    128,
+    214,
+    69,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "36 images",
+   "rect": [
+    128,
+    236,
+    65,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "T1 coronal",
+   "rect": [
+    128,
+    276,
+    63,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "TE 30 ms · 48",
+   "rect": [
+    128,
+    298,
+    94,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Localiser",
+   "rect": [
+    128,
+    337,
+    54,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "3 images",
+   "rect": [
+    128,
+    359,
+    58,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "2D only",
+   "rect": [
+    134,
+    380,
+    38,
+    14
+   ],
+   "font": "IBM Plex Sans",
+   "size": "11px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Phantom, Voxel",
+   "rect": [
+    280,
+    56,
+    101,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "ID PHANTOM-001",
+   "rect": [
+    280,
+    73,
+    101,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "12 Nov 2026",
+   "rect": [
+    1021,
+    56,
+    79,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "T2 axial",
+   "rect": [
+    1042,
+    73,
+    58,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Slice 18 of 36",
+   "rect": [
+    280,
+    845,
+    101,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "A",
+   "rect": [
+    706,
+    55,
+    8,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "P",
+   "rect": [
+    706,
+    844,
+    8,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "R",
+   "rect": [
+    280,
+    458,
+    8,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "L",
+   "rect": [
+    1092,
+    458,
+    8,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "1 · 148.2 mm",
+   "rect": [
+    672,
+    350,
+    86,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(75, 206, 253)"
+  },
+  {
+   "text": "2 · 92.4°",
+   "rect": [
+    682,
+    586,
+    65,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(75, 206, 253)"
+  },
+  {
+   "text": "DICOM tags",
+   "rect": [
+    1170,
+    71,
+    82,
+    19
+   ],
+   "font": "IBM Plex Sans",
+   "size": "15px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "3 OF 214",
+   "rect": [
+    1359,
+    74,
+    56,
+    14
+   ],
+   "font": "IBM Plex Mono",
+   "size": "11px",
+   "weight": "500",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "Search name, number or value",
+   "rect": [
+    1170,
+    101,
+    206,
+    14
+   ],
+   "font": "IBM Plex Sans",
+   "size": "11px",
+   "weight": "600",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Echo Time",
+   "rect": [
+    1180,
+    179,
+    62,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "(0018,0081) DS",
+   "rect": [
+    1306,
+    177,
+    99,
+    14
+   ],
+   "font": "IBM Plex Mono",
+   "size": "11px",
+   "weight": "500",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "90",
+   "rect": [
+    1180,
+    201,
+    16,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Echo Train Length",
+   "rect": [
+    1180,
+    248,
+    107,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "(0018,0091) IS",
+   "rect": [
+    1306,
+    246,
+    99,
+    14
+   ],
+   "font": "IBM Plex Mono",
+   "size": "11px",
+   "weight": "500",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "16",
+   "rect": [
+    1180,
+    270,
+    16,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Echo Numbers",
+   "rect": [
+    1180,
+    317,
+    88,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "(0018,0086) IS",
+   "rect": [
+    1306,
+    315,
+    99,
+    14
+   ],
+   "font": "IBM Plex Mono",
+   "size": "11px",
+   "weight": "500",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "1",
+   "rect": [
+    1180,
+    339,
+    8,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Copy value",
+   "rect": [
+    1183,
+    384,
+    69,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "For review only. Not for diagnostic use.",
+   "rect": [
+    30,
+    879,
+    207,
+    15
+   ],
+   "font": "IBM Plex Sans",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "MR · 512 x 512 · 0.45 mm · zoom 140% · DirectX 12",
+   "rect": [
+    1073,
+    879,
+    353,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  }
+ ]
+}

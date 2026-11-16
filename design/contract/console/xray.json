@@ -1,0 +1,356 @@
+{
+ "interface": "console",
+ "screen": "xray",
+ "window": [
+  1440,
+  900
+ ],
+ "controls": [
+  {
+   "kind": "button",
+   "label": "More tools",
+   "key": null,
+   "tooltip": "Show or hide the clinician tools",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1189,
+    5,
+    124,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Open",
+   "key": "Ctrl O",
+   "tooltip": "Open (Ctrl O)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    53,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Fit",
+   "key": "F",
+   "tooltip": "Fit (F)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    114,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Reset",
+   "key": "R",
+   "tooltip": "Reset (R)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    162,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Lighter",
+   "key": "+",
+   "tooltip": "Lighter (+)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    223,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Darker",
+   "key": "-",
+   "tooltip": "Darker (-)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    271,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Auto brightness",
+   "key": "0",
+   "tooltip": "Auto brightness (0)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    319,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Menu",
+   "key": null,
+   "tooltip": "Menu",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    819,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Chest PA1 image",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    64,
+    79,
+    195,
+    60
+   ],
+   "fill": "rgba(52, 200, 253, 0.16)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  }
+ ],
+ "texts": [
+  {
+   "text": "Voxel",
+   "rect": [
+    66,
+    13,
+    40,
+    19
+   ],
+   "font": "Archivo",
+   "size": "17px",
+   "weight": "700",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "/",
+   "rect": [
+    116,
+    13,
+    5,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(111, 124, 138)"
+  },
+  {
+   "text": "Phantom, Voxel / DX Chest / Chest PA",
+   "rect": [
+    131,
+    13,
+    235,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "More tools",
+   "rect": [
+    1199,
+    14,
+    62,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "– □ ×",
+   "rect": [
+    1331,
+    15,
+    95,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "Series",
+   "rect": [
+    70,
+    57,
+    44,
+    14
+   ],
+   "font": "IBM Plex Sans",
+   "size": "11px",
+   "weight": "600",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "1",
+   "rect": [
+    246,
+    57,
+    7,
+    14
+   ],
+   "font": "IBM Plex Mono",
+   "size": "11px",
+   "weight": "500",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "Chest PA",
+   "rect": [
+    128,
+    90,
+    54,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "1 image",
+   "rect": [
+    128,
+    112,
+    50,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "R",
+   "rect": [
+    280,
+    458,
+    8,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "L",
+   "rect": [
+    1420,
+    458,
+    8,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Zoom 62%",
+   "rect": [
+    280,
+    845,
+    58,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "For review only. Not for diagnostic use.",
+   "rect": [
+    30,
+    879,
+    207,
+    15
+   ],
+   "font": "IBM Plex Sans",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "DX · 2140 x 2540 · 0.14 mm at detector · zoom 62% · DirectX 12",
+   "rect": [
+    980,
+    879,
+    446,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  }
+ ]
+}

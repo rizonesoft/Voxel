@@ -1,0 +1,1754 @@
+{
+ "interface": "console",
+ "screen": "settings",
+ "window": [
+  1440,
+  900
+ ],
+ "controls": [
+  {
+   "kind": "button",
+   "label": "More tools",
+   "key": null,
+   "tooltip": "Show or hide the clinician tools",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1189,
+    5,
+    124,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Open",
+   "key": "Ctrl O",
+   "tooltip": "Open (Ctrl O)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    53,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Stack",
+   "key": "S",
+   "tooltip": "Stack (S)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    114,
+    44,
+    44
+   ],
+   "fill": "rgba(52, 200, 253, 0.16)",
+   "ink": "rgb(75, 206, 253)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "MPR",
+   "key": "M",
+   "tooltip": "MPR (M)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    162,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "3D",
+   "key": "3",
+   "tooltip": "3D (3)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    210,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Overlay",
+   "key": "O",
+   "tooltip": "Overlay (O)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    271,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Tags",
+   "key": "T",
+   "tooltip": "Tags (T)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    319,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Export",
+   "key": "Ctrl E",
+   "tooltip": "Export (Ctrl E)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    367,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Menu",
+   "key": null,
+   "tooltip": "Menu",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    6,
+    819,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "T1 sagittal180 images",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    64,
+    79,
+    195,
+    60
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "T2 axial36 images",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    64,
+    141,
+    195,
+    60
+   ],
+   "fill": "rgba(52, 200, 253, 0.16)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "FLAIR axial36 images",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    64,
+    203,
+    195,
+    60
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "T1 coronalTE 30 ms · 48",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    64,
+    265,
+    195,
+    60
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Localiser3 images2D only",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    64,
+    327,
+    195,
+    79
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Auto",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1170,
+    151,
+    78,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Lighter",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1254,
+    151,
+    78,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Darker",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1337,
+    151,
+    78,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Fit",
+   "key": "F",
+   "tooltip": "Fit (F)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1170,
+    195,
+    78,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Reset",
+   "key": "R",
+   "tooltip": "Reset (R)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1254,
+    195,
+    78,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Invert",
+   "key": "I",
+   "tooltip": "Invert (I)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1337,
+    195,
+    78,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Length",
+   "key": "L",
+   "tooltip": "Length (L)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1170,
+    298,
+    120,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Angle",
+   "key": "A",
+   "tooltip": "Angle (A)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1296,
+    298,
+    120,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Delete",
+   "key": "Del",
+   "tooltip": "Delete (Del)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1170,
+    429,
+    78,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Undo",
+   "key": "Ctrl Z",
+   "tooltip": "Undo (Ctrl Z)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1254,
+    429,
+    78,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Clear",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1337,
+    429,
+    78,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "1",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1170,
+    532,
+    57,
+    34
+   ],
+   "fill": "rgba(52, 200, 253, 0.16)",
+   "ink": "rgb(75, 206, 253)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "1 x 2",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1233,
+    532,
+    57,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "2 x 1",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1296,
+    532,
+    57,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "2 x 2",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1358,
+    532,
+    57,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "checkbox",
+   "label": "Link scrolling K",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": false,
+   "options": null,
+   "rect": [
+    1170,
+    578,
+    18,
+    18
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(0, 0, 0)",
+   "radius": "0px"
+  },
+  {
+   "kind": "button",
+   "label": "WorkstationToolbar on top, series on the left. The default.",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    360,
+    270,
+    233,
+    223
+   ],
+   "fill": "rgb(19, 26, 34)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "LightboxThe image fills the window. Tools float in a dock.",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    603,
+    270,
+    233,
+    223
+   ],
+   "fill": "rgb(19, 26, 34)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "ConsoleIcon rail and an inspector with every setting.",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    847,
+    270,
+    233,
+    223
+   ],
+   "fill": "rgba(52, 200, 253, 0.16)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  },
+  {
+   "kind": "select",
+   "label": "Start with",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": "Simple tools",
+   "options": [
+    "Simple tools",
+    "More tools",
+    "What I used last"
+   ],
+   "rect": [
+    360,
+    532,
+    229,
+    34
+   ],
+   "fill": "rgb(14, 19, 26)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "select",
+   "label": "Image information",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": "Full",
+   "options": [
+    "Full",
+    "Minimal",
+    "Off"
+   ],
+   "rect": [
+    605,
+    532,
+    229,
+    34
+   ],
+   "fill": "rgb(14, 19, 26)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "select",
+   "label": "3D quality",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": "Automatic",
+   "options": [
+    "Automatic",
+    "Low",
+    "Medium",
+    "High"
+   ],
+   "rect": [
+    851,
+    532,
+    229,
+    34
+   ],
+   "fill": "rgb(14, 19, 26)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Remove",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    986,
+    601,
+    81,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Reset to defaults",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    360,
+    670,
+    136,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Done",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1008,
+    670,
+    72,
+    34
+   ],
+   "fill": "rgb(52, 200, 253)",
+   "ink": "rgb(4, 17, 28)",
+   "radius": "6px"
+  }
+ ],
+ "texts": [
+  {
+   "text": "Voxel",
+   "rect": [
+    66,
+    13,
+    40,
+    19
+   ],
+   "font": "Archivo",
+   "size": "17px",
+   "weight": "700",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "/",
+   "rect": [
+    116,
+    13,
+    5,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(111, 124, 138)"
+  },
+  {
+   "text": "Phantom, Voxel / MR Brain / T2 axial",
+   "rect": [
+    131,
+    13,
+    228,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "More tools",
+   "rect": [
+    1199,
+    14,
+    62,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "– □ ×",
+   "rect": [
+    1331,
+    15,
+    95,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "Series",
+   "rect": [
+    70,
+    57,
+    44,
+    14
+   ],
+   "font": "IBM Plex Sans",
+   "size": "11px",
+   "weight": "600",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "5",
+   "rect": [
+    246,
+    57,
+    7,
+    14
+   ],
+   "font": "IBM Plex Mono",
+   "size": "11px",
+   "weight": "500",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "T1 sagittal",
+   "rect": [
+    128,
+    90,
+    64,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "180 images",
+   "rect": [
+    128,
+    112,
+    72,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "T2 axial",
+   "rect": [
+    128,
+    152,
+    47,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "36 images",
+   "rect": [
+    128,
+    174,
+    65,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "FLAIR axial",
+   "rect": [
+    128,
+    214,
+    69,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "36 images",
+   "rect": [
+    128,
+    236,
+    65,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "T1 coronal",
+   "rect": [
+    128,
+    276,
+    63,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "TE 30 ms · 48",
+   "rect": [
+    128,
+    298,
+    94,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Localiser",
+   "rect": [
+    128,
+    337,
+    54,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "3 images",
+   "rect": [
+    128,
+    359,
+    58,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "2D only",
+   "rect": [
+    134,
+    380,
+    38,
+    14
+   ],
+   "font": "IBM Plex Sans",
+   "size": "11px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Phantom, Voxel",
+   "rect": [
+    280,
+    56,
+    101,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "ID PHANTOM-001",
+   "rect": [
+    280,
+    73,
+    101,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "12 Nov 2026",
+   "rect": [
+    1021,
+    56,
+    79,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "T2 axial",
+   "rect": [
+    1042,
+    73,
+    58,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Slice 18 of 36",
+   "rect": [
+    280,
+    845,
+    101,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "A",
+   "rect": [
+    706,
+    55,
+    8,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "P",
+   "rect": [
+    706,
+    844,
+    8,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "R",
+   "rect": [
+    280,
+    458,
+    8,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "L",
+   "rect": [
+    1092,
+    458,
+    8,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "1 · 148.2 mm",
+   "rect": [
+    672,
+    350,
+    86,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(75, 206, 253)"
+  },
+  {
+   "text": "2 · 92.4°",
+   "rect": [
+    682,
+    586,
+    65,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(75, 206, 253)"
+  },
+  {
+   "text": "Window",
+   "rect": [
+    1170,
+    71,
+    57,
+    19
+   ],
+   "font": "IBM Plex Sans",
+   "size": "15px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "VIEW.WL",
+   "rect": [
+    1366,
+    74,
+    49,
+    14
+   ],
+   "font": "IBM Plex Mono",
+   "size": "11px",
+   "weight": "500",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "Width",
+   "rect": [
+    1170,
+    101,
+    41,
+    14
+   ],
+   "font": "IBM Plex Sans",
+   "size": "11px",
+   "weight": "600",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "1200",
+   "rect": [
+    1170,
+    113,
+    53,
+    29
+   ],
+   "font": "IBM Plex Mono",
+   "size": "22px",
+   "weight": "500",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Level",
+   "rect": [
+    1298,
+    101,
+    36,
+    14
+   ],
+   "font": "IBM Plex Sans",
+   "size": "11px",
+   "weight": "600",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "600",
+   "rect": [
+    1298,
+    113,
+    40,
+    29
+   ],
+   "font": "IBM Plex Mono",
+   "size": "22px",
+   "weight": "500",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Auto",
+   "rect": [
+    1194,
+    159,
+    30,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Lighter",
+   "rect": [
+    1271,
+    159,
+    44,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Darker",
+   "rect": [
+    1355,
+    159,
+    42,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Fit",
+   "rect": [
+    1201,
+    203,
+    16,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Reset",
+   "rect": [
+    1275,
+    203,
+    36,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Invert",
+   "rect": [
+    1357,
+    203,
+    38,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Measurements",
+   "rect": [
+    1170,
+    268,
+    103,
+    19
+   ],
+   "font": "IBM Plex Sans",
+   "size": "15px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "2 ON SLICE",
+   "rect": [
+    1345,
+    271,
+    70,
+    14
+   ],
+   "font": "IBM Plex Mono",
+   "size": "11px",
+   "weight": "500",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "Length",
+   "rect": [
+    1208,
+    306,
+    43,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Angle",
+   "rect": [
+    1337,
+    306,
+    36,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "1 · Length",
+   "rect": [
+    1181,
+    352,
+    62,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "148.2 mm",
+   "rect": [
+    1337,
+    352,
+    67,
+    18
+   ],
+   "font": "IBM Plex Mono",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "2 · Angle",
+   "rect": [
+    1181,
+    390,
+    55,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "92.4°",
+   "rect": [
+    1362,
+    390,
+    42,
+    18
+   ],
+   "font": "IBM Plex Mono",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Delete",
+   "rect": [
+    1188,
+    437,
+    41,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Undo",
+   "rect": [
+    1276,
+    437,
+    33,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Clear",
+   "rect": [
+    1360,
+    437,
+    33,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Layout",
+   "rect": [
+    1170,
+    502,
+    47,
+    19
+   ],
+   "font": "IBM Plex Sans",
+   "size": "15px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "VIEW.GRID",
+   "rect": [
+    1352,
+    505,
+    63,
+    14
+   ],
+   "font": "IBM Plex Mono",
+   "size": "11px",
+   "weight": "500",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "1",
+   "rect": [
+    1194,
+    540,
+    8,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(75, 206, 253)"
+  },
+  {
+   "text": "1 x 2",
+   "rect": [
+    1246,
+    540,
+    31,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "2 x 1",
+   "rect": [
+    1309,
+    540,
+    31,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "2 x 2",
+   "rect": [
+    1371,
+    540,
+    31,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Link scrolling",
+   "rect": [
+    1198,
+    577,
+    86,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "K",
+   "rect": [
+    1284,
+    580,
+    7,
+    14
+   ],
+   "font": "IBM Plex Mono",
+   "size": "11px",
+   "weight": "500",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "For review only. Not for diagnostic use.",
+   "rect": [
+    30,
+    879,
+    207,
+    15
+   ],
+   "font": "IBM Plex Sans",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "MR · 512 x 512 · 0.45 mm · zoom 140% · DirectX 12",
+   "rect": [
+    1073,
+    879,
+    353,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Settings",
+   "rect": [
+    360,
+    197,
+    100,
+    31
+   ],
+   "font": "Archivo",
+   "size": "28px",
+   "weight": "700",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Changes are saved as you make them.",
+   "rect": [
+    858,
+    209,
+    222,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Interface",
+   "rect": [
+    360,
+    248,
+    67,
+    14
+   ],
+   "font": "IBM Plex Sans",
+   "size": "11px",
+   "weight": "600",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Workstation",
+   "rect": [
+    373,
+    417,
+    79,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Toolbar on top, series on the left. The default.",
+   "rect": [
+    373,
+    445,
+    191,
+    35
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Lightbox",
+   "rect": [
+    616,
+    417,
+    56,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "The image fills the window. Tools float in a dock.",
+   "rect": [
+    616,
+    445,
+    192,
+    35
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Console",
+   "rect": [
+    860,
+    417,
+    52,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Icon rail and an inspector with every setting.",
+   "rect": [
+    860,
+    445,
+    176,
+    35
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Start with",
+   "rect": [
+    360,
+    512,
+    74,
+    14
+   ],
+   "font": "IBM Plex Sans",
+   "size": "11px",
+   "weight": "600",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Image information",
+   "rect": [
+    605,
+    512,
+    129,
+    14
+   ],
+   "font": "IBM Plex Sans",
+   "size": "11px",
+   "weight": "600",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "3D quality",
+   "rect": [
+    851,
+    512,
+    72,
+    14
+   ],
+   "font": "IBM Plex Sans",
+   "size": "11px",
+   "weight": "600",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "DICOM files open with Voxel",
+   "rect": [
+    373,
+    598,
+    183,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Voxel is offered in Explorer for .dcm, .dicom and .ima files, for your account only.",
+   "rect": [
+    373,
+    620,
+    464,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Remove",
+   "rect": [
+    1001,
+    608,
+    51,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Reset to defaults",
+   "rect": [
+    375,
+    677,
+    106,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Done",
+   "rect": [
+    1027,
+    677,
+    34,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "600",
+   "ink": "rgb(4, 17, 28)"
+  }
+ ]
+}

@@ -12,19 +12,15 @@ Needs Microsoft Edge (the renderer) and Pillow. The social preview and the banne
 and IBM Plex Mono from Google Fonts, so they need a network connection; the icon renders do not.
 """
 import re
-import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 from PIL import Image
 
+from lib.edge_shot import shoot_html as screenshot
+
 ROOT = Path(__file__).resolve().parent.parent
 BRAND = ROOT / "assets" / "brand"
-EDGE_PATHS = (
-    Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"),
-    Path(r"C:\Program Files\Microsoft\Edge\Application\msedge.exe"),
-)
 FONTS = ("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@88,600;88,700"
          "&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap")
 HEAD = "font-family:'Archivo','IBM Plex Sans',system-ui,sans-serif;font-stretch:88%;font-weight:700"
@@ -34,13 +30,6 @@ ICO_SIZES = (16, 20, 24, 32, 40, 48, 64, 128, 256)
 SMALL_BELOW = 48  # frames under this size use the heavier small icon
 
 
-def edge():
-    for path in EDGE_PATHS:
-        if path.is_file():
-            return path
-    sys.exit("render-brand: Microsoft Edge was not found")
-
-
 def inner(svg_text):
     """The content of an SVG file's root element, and its viewBox."""
     box = re.search(r'viewBox="([^"]+)"', svg_text)
@@ -48,30 +37,6 @@ def inner(svg_text):
     if box is None or body is None:
         sys.exit("render-brand: an SVG source has no viewBox or no root element")
     return body[1], box[1]
-
-
-def screenshot(html, target, width, height, scale=1, transparent=False):
-    """Render an HTML document to a PNG with headless Edge; the whole process tree is stopped on a timeout."""
-    with tempfile.TemporaryDirectory() as work:
-        page = Path(work) / "page.html"
-        page.write_text(html, encoding="utf-8")
-        command = [
-            str(edge()), "--headless=new", "--disable-gpu", "--hide-scrollbars", "--no-first-run",
-            f"--user-data-dir={Path(work) / 'profile'}", f"--window-size={width},{height}",
-            f"--force-device-scale-factor={scale}", "--virtual-time-budget=8000", f"--screenshot={target}",
-        ]
-        if transparent:
-            command.append("--default-background-color=00000000")
-        command.append(page.as_uri())
-        process = subprocess.Popen(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-                                   creationflags=subprocess.CREATE_NO_WINDOW)
-        try:
-            process.wait(timeout=90)
-        except subprocess.TimeoutExpired:
-            subprocess.run(["taskkill", "/T", "/F", "/PID", str(process.pid)], capture_output=True, check=False)
-            sys.exit(f"render-brand: Edge timed out rendering {target.name}")
-    if not target.is_file():
-        sys.exit(f"render-brand: Edge wrote no image for {target.name}")
 
 
 def page(body, background, extra_head=""):

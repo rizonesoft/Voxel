@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Voxel Lightbox interface</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@88,600;88,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<style>
+body{margin:0}
+.lx{width:1440px;height:900px;position:relative;overflow:hidden;display:flex;flex-direction:column;background:#000;color:#edf0f4;font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:14px;line-height:21px}
+.lx button{font:inherit;color:inherit;cursor:pointer}
+.lx .mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-feature-settings:'zero','tnum'}
+.lx .lbl{font-size:11px;line-height:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#b7bfc8}
+.lx .glass{position:absolute;background:rgba(27,35,44,.92);border:1px solid #4c5764;box-shadow:0 12px 32px rgba(0,0,0,.45);box-sizing:border-box}
+.lx .ib{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:10px;border:0;background:transparent}
+.lx .ib:hover{background:#37414b}
+.lx .ib:disabled{color:#6f7c8a;cursor:default;background:transparent}
+.lx .seg{height:36px;padding:0 16px;border:0;border-radius:999px;background:transparent;font-size:14px}
+.lx .seg:disabled{color:#6f7c8a;cursor:default}
+.lx .btn{height:36px;padding:0 16px;border-radius:999px;border:1px solid #6f7c8a;background:#1b232c;font-size:14px}
+.lx .pri{background:#34c8fd;border-color:#34c8fd;color:#04111c;font-weight:600}
+.lx .ov{position:absolute;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;line-height:17px;color:#edf0f4;text-shadow:0 0 3px #000,0 0 3px #000}
+.lx .film{display:flex;gap:10px;align-items:center;width:172px;padding:6px;border-radius:12px;border:1px solid transparent;background:transparent;text-align:left;box-sizing:border-box}
+.lx .film img{width:52px;height:52px;border-radius:8px;object-fit:cover;background:#000;flex:none}
+.lx .pane{position:absolute;background:#000;overflow:hidden}
+.lx .pane>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.lx .mi{display:flex;width:100%;height:40px;align-items:center;padding:0 14px;border:0;background:transparent;border-radius:8px;font-size:14px;text-align:left}
+.lx .mi:hover{background:#37414b}
+.lx select,.lx input[type=text]{height:36px;border-radius:8px;border:1px solid #6f7c8a;background:#0e131a;color:#edf0f4;font:inherit;padding:0 10px;box-sizing:border-box}
+</style>
+</helmet>
+<div class="lx">
+
+<div style="height: 32px; flex: none; display: flex; align-items: center; gap: 10px; padding: 0 12px; background: #0e131a">
+<svg aria-hidden="true" width="16" height="18" viewBox="52 40 152 176"><path d="M128 44 L200.7 86 L128 128 L55.3 86 Z" fill="#34c8fd"/><path d="M55.3 86 L128 128 L128 212 L55.3 170 Z" fill="#1a86b4"/><path d="M200.7 86 L200.7 170 L128 212 L128 128 Z" fill="#0f5778"/><path d="M128 128 L91.65 107 L128 86 L164.35 107 Z" fill="#edf0f4"/><path d="M128 128 L128 170 L91.65 149 L91.65 107 Z" fill="#a9e6fe"/><path d="M128 128 L164.35 107 L164.35 149 L128 170 Z" fill="#74d8fd"/></svg>
+<span style="font-size: 13px; color: #b7bfc8">Voxel</span>
+<span style="flex-grow: 1"></span>
+<span class="mono" style="color: #979faa; font-size: 12px; letter-spacing: 12px" aria-hidden="true">– □ ×</span>
+</div>
+
+<div style="flex: 1 1 0; min-height: 0; position: relative; background: {{ stageBg }}">
+
+<sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 40px 40px 100px; border: 2px dashed #4c5764; border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px">
+<svg aria-hidden="true" width="96" height="110" viewBox="52 40 152 176"><path d="M128 44 L200.7 86 L128 128 L55.3 86 Z" fill="#34c8fd"/><path d="M55.3 86 L128 128 L128 212 L55.3 170 Z" fill="#1a86b4"/><path d="M200.7 86 L200.7 170 L128 212 L128 128 Z" fill="#0f5778"/><path d="M128 128 L91.65 107 L128 86 L164.35 107 Z" fill="#edf0f4"/><path d="M128 128 L128 170 L91.65 149 L91.65 107 Z" fill="#a9e6fe"/><path d="M128 128 L164.35 107 L164.35 149 L128 170 Z" fill="#74d8fd"/></svg>
+<div style="font-family: 'Archivo', sans-serif; font-stretch: 88%; font-size: 40px; line-height: 44px; font-weight: 700">Drop your scan here</div>
+<div style="color: #b7bfc8; font-size: 16px">A DICOM file, a folder, or the disc from your radiologist.</div>
+<div style="display: flex; gap: 10px; margin-top: 6px"><button class="btn pri" onClick="{{ goXray }}">Open file</button><button class="btn" onClick="{{ goLoading }}">Open folder</button></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isRefusal }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0 0 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px">
+<svg aria-hidden="true" width="44" height="44" viewBox="0 0 16 16" fill="none" stroke="#fd736d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5h5.5L13 5v9.5H4zM9.5 1.5V5H13M6.5 8.5l4 4M10.5 8.5l-4 4"/></svg>
+<div style="font-family: 'Archivo', sans-serif; font-stretch: 88%; font-size: 40px; line-height: 44px; font-weight: 700">This file is not a DICOM image</div>
+<div class="mono" style="color: #b7bfc8; font-size: 13px">holiday-photo.png</div>
+<div style="color: #b7bfc8; max-width: 480px; text-align: center; font-size: 16px; line-height: 24px">Voxel opens medical images in the DICOM format. Scans on a disc are usually in a folder named DICOM.</div>
+<div style="display: flex; gap: 10px; margin-top: 6px"><button class="btn pri" onClick="{{ goXray }}">Open another file</button><button class="btn" onClick="{{ goLoading }}">Open folder</button></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isXray }}" hint-placeholder-val="{{ false }}">
+<div class="pane" style="inset: 0 0 84px"><img alt="Chest X-ray phantom" src="/_blob/5de641434b8aa7fff0e09fadd26eff78"><div class="ov" style="left: 16px; top: 50%; font-size: 13px">R</div><div class="ov" style="right: 16px; top: 50%; font-size: 13px">L</div></div>
+</sc-if>
+
+<sc-if value="{{ isSingle }}" hint-placeholder-val="{{ true }}">
+<div class="pane" style="inset: 0 0 176px"><img alt="Axial MRI phantom" src="/_blob/3c0e621e3b73a699ce023474b800d2af" style="{{ singleImg }}">
+<sc-if value="{{ fullOverlay }}" hint-placeholder-val="{{ true }}">
+<div class="ov" style="right: 56px; top: 16px; text-align: right">{{ seriesName }}<br>{{ sliceText }}</div>
+<div class="ov" style="right: 56px; bottom: 10px; text-align: right">W 1200 L 600<br>Zoom 140%</div>
+<div class="ov" style="left: 50%; top: 66px; font-size: 13px">A</div><div class="ov" style="left: 50%; bottom: 10px; font-size: 13px">P</div><div class="ov" style="left: 16px; top: 50%; font-size: 13px">R</div><div class="ov" style="right: 56px; top: 50%; font-size: 13px">L</div>
+</sc-if>
+<sc-if value="{{ showMeasure }}" hint-placeholder-val="{{ true }}">
+<svg aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%" viewBox="0 0 1440 692"><g fill="none" stroke="#34c8fd" stroke-width="1.5"><path d="M590 262 L850 262"/><circle cx="590" cy="262" r="4" fill="#34c8fd"/><circle cx="850" cy="262" r="4" fill="#34c8fd"/><path d="M808 494 L720 414 L650 500"/><path d="M740 432 A28 28 0 0 0 702 436"/></g></svg>
+<div class="ov" style="left: 686px; top: 236px; color: #4bcefd">148.2 mm</div>
+<div class="ov" style="left: 704px; top: 448px; color: #4bcefd">92.4°</div>
+</sc-if>
+<div style="position: absolute; right: 16px; top: 70px; bottom: 20px; width: 22px; display: flex; justify-content: center"><span style="width: 3px; border-radius: 3px; background: #37414b; height: 100%"></span><span style="position: absolute; top: 38%; width: 14px; height: 30px; border-radius: 7px; background: #edf0f4"></span></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isLayout }}" hint-placeholder-val="{{ false }}">
+<div class="pane" style="left: 0; top: 0; width: 719px; bottom: 176px"><img alt="T2 axial phantom" src="/_blob/3c0e621e3b73a699ce023474b800d2af"><div style="position: absolute; inset: 0; border: 2px solid #34c8fd; pointer-events: none; z-index: 1"></div><div class="ov" style="left: 16px; top: 66px">T2 axial · 18 of 36</div><div class="ov" style="right: 16px; bottom: 10px; color: #4bcefd">Linked</div></div>
+<div class="pane" style="right: 0; top: 0; width: 719px; bottom: 176px"><img alt="FLAIR axial phantom" src="/_blob/3c0e621e3b73a699ce023474b800d2af" style="filter: contrast(1.5) brightness(.8)"><div class="ov" style="left: 16px; top: 66px">FLAIR axial · 18 of 36</div><div class="ov" style="right: 16px; bottom: 10px; color: #4bcefd">Linked</div></div>
+</sc-if>
+
+<sc-if value="{{ isMpr }}" hint-placeholder-val="{{ false }}">
+<div class="pane" style="left: 0; top: 0; width: 862px; bottom: 176px"><img alt="Axial plane" src="/_blob/3c0e621e3b73a699ce023474b800d2af"><svg aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%" viewBox="0 0 862 692" preserveAspectRatio="none"><path d="M0 330 H410 M452 330 H862" stroke="#c9a2ff" stroke-width="1.5"/><path d="M431 0 V309 M431 351 V692" stroke="#ff9d5c" stroke-width="1.5"/><circle cx="700" cy="330" r="6" fill="#000" stroke="#c9a2ff" stroke-width="1.5"/></svg><div class="ov" style="left: 16px; top: 66px; color: #34c8fd">Axial · 96 of 180</div></div>
+<div class="pane" style="right: 0; top: 0; width: 576px; height: 345px"><img alt="Sagittal plane" src="/_blob/3f2a0b4e24d6afe376db5cb4234e86df"><svg aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%" viewBox="0 0 576 345" preserveAspectRatio="none"><path d="M0 170 H270 M306 170 H576" stroke="#34c8fd" stroke-width="1.5"/><path d="M288 0 V152 M288 188 V345" stroke="#c9a2ff" stroke-width="1.5"/></svg><div class="ov" style="left: 12px; top: 10px; color: #ff9d5c">Sagittal</div></div>
+<div class="pane" style="right: 0; top: 347px; width: 576px; bottom: 176px"><img alt="Coronal plane" src="/_blob/a170f7ac2f073a5b8821122d8931a768"><svg aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%" viewBox="0 0 576 345" preserveAspectRatio="none"><path d="M0 165 H270 M306 165 H576" stroke="#34c8fd" stroke-width="1.5"/><path d="M288 0 V147 M288 183 V345" stroke="#ff9d5c" stroke-width="1.5"/></svg><div class="ov" style="left: 12px; top: 10px; color: #c9a2ff">Coronal</div></div>
+</sc-if>
+
+<sc-if value="{{ is3d }}" hint-placeholder-val="{{ false }}">
+<div class="pane" style="inset: 0 0 176px"><img alt="3D rendering of the phantom" src="/_blob/cf44c79eec3c758c60c8f9f4b25843a3">
+<svg role="img" aria-label="Orientation cube" width="72" height="80" viewBox="52 40 152 176" style="position: absolute; left: 20px; bottom: 12px"><path d="M128 44 L200.7 86 L128 128 L55.3 86 Z" fill="#37414b" stroke="#6f7c8a"/><path d="M55.3 86 L128 128 L128 212 L55.3 170 Z" fill="#242d37" stroke="#6f7c8a"/><path d="M200.7 86 L200.7 170 L128 212 L128 128 Z" fill="#1b232c" stroke="#6f7c8a"/><text x="128" y="95" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="26" fill="#edf0f4">H</text><text x="90" y="160" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="26" fill="#edf0f4">A</text><text x="166" y="160" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="26" fill="#edf0f4">L</text></svg>
+</div>
+<div class="glass" style="right: 16px; top: 70px; width: 272px; padding: 16px; border-radius: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 3px; border-radius: 999px; background: #0e131a"><button class="seg">MIP</button><button class="seg" style="background: #34c8fd; color: #04111c; font-weight: 600">Shaded</button></div>
+<label class="lbl" for="l-preset">Preset</label><select id="l-preset"><option>Surface</option><option>Soft</option><option>Bright structures</option></select>
+<label class="lbl" for="l-thr">Threshold</label><input id="l-thr" type="range" min="0" max="100" defaultValue="42" style="accent-color: #34c8fd">
+<label class="lbl" for="l-q">Quality</label><select id="l-q"><option>Automatic</option><option>Low</option><option>Medium</option><option>High</option></select>
+<div style="display: flex; gap: 8px"><button class="btn" style="flex: 1; padding: 0">Reset preset</button><button class="btn" style="flex: 1; padding: 0">Reset view</button></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ hasStudy }}" hint-placeholder-val="{{ true }}">
+<div class="glass" style="left: 16px; top: 14px; height: 44px; border-radius: 999px; padding: 0 18px 0 8px; display: flex; align-items: center; gap: 10px"><span style="width: 28px; height: 28px; border-radius: 999px; background: #37414b; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600">PV</span><span style="font-weight: 600">Phantom, Voxel</span><span class="mono" style="font-size: 12px; color: #b7bfc8">{{ studyLine }}</span></div>
+</sc-if>
+
+<sc-if value="{{ clinician }}" hint-placeholder-val="{{ true }}">
+<div class="glass" style="left: 50%; transform: translateX(-50%); top: 14px; height: 44px; border-radius: 999px; padding: 4px; display: flex; gap: 2px">
+<button class="seg" style="{{ segStack }}" onClick="{{ goStack }}">Stack</button><button class="seg" style="{{ segMpr }}" disabled="{{ noVolume }}" onClick="{{ goMpr }}">MPR</button><button class="seg" style="{{ seg3d }}" disabled="{{ noVolume }}" onClick="{{ go3d }}">3D</button>
+</div>
+<sc-if value="{{ noVolume }}" hint-placeholder-val="{{ false }}">
+<div class="glass" style="left: 50%; transform: translateX(-50%); top: 66px; width: 400px; padding: 12px 16px; border-radius: 12px; font-size: 13px; line-height: 19px"><span style="font-weight: 600">MPR and 3D are not available.</span> This series has slices in more than one direction, so it cannot be shown as a volume. It still scrolls as a 2D stack.</div>
+</sc-if>
+<div class="glass" style="left: 50%; transform: translateX(-50%); bottom: 88px; height: 78px; border-radius: 16px; padding: 6px; display: flex; gap: 4px">
+<button class="film" style="{{ cardT1 }}" onClick="{{ goStack }}"><img alt="" src="/_blob/3f2a0b4e24d6afe376db5cb4234e86df"><span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 600; font-size: 13px">T1 sagittal</span><span class="mono" style="font-size: 12px; color: #b7bfc8">180 images</span></span></button>
+<button class="film" style="{{ cardT2 }}" onClick="{{ goStack }}"><img alt="" src="/_blob/3c0e621e3b73a699ce023474b800d2af"><span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 600; font-size: 13px">T2 axial</span><span class="mono" style="font-size: 12px; color: #b7bfc8">36 images</span></span></button>
+<button class="film" onClick="{{ goStack }}"><img alt="" src="/_blob/3c0e621e3b73a699ce023474b800d2af" style="filter: contrast(1.5) brightness(.8)"><span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 600; font-size: 13px">FLAIR axial</span><span class="mono" style="font-size: 12px; color: #b7bfc8">36 images</span></span></button>
+<button class="film" onClick="{{ goStack }}"><img alt="" src="/_blob/a170f7ac2f073a5b8821122d8931a768"><span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 600; font-size: 13px">T1 coronal</span><span class="mono" style="font-size: 12px; color: #b7bfc8">TE 30 ms · 48</span></span></button>
+<button class="film" style="{{ cardLoc }}" onClick="{{ goOnly2d }}"><img alt="" src="/_blob/a170f7ac2f073a5b8821122d8931a768" style="filter: blur(1px)"><span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 600; font-size: 13px">Localiser</span><span class="mono" style="font-size: 12px; color: #b7bfc8">3 · 2D only</span></span></button>
+</div>
+</sc-if>
+
+<sc-if value="{{ isLoading }}" hint-placeholder-val="{{ false }}">
+<div class="glass" style="left: 50%; transform: translateX(-50%); top: 320px; padding: 14px 20px; border-radius: 14px; display: flex; flex-direction: column; gap: 10px; align-items: center"><span>Loading T2 axial · 14 of 36 images</span><span style="width: 320px; height: 3px; border-radius: 3px; background: #37414b; overflow: hidden"><span style="display: block; width: 39%; height: 100%; background: #34c8fd"></span></span></div>
+</sc-if>
+
+<div class="glass" style="left: 50%; transform: translateX(-50%); bottom: 16px; height: 56px; border-radius: 18px; padding: 6px 8px; display: flex; align-items: center; gap: 2px">
+<sc-for list="{{ tools }}" as="t" hint-placeholder-count="12">
+<sc-if value="{{ t.sep }}" hint-placeholder-val="{{ false }}"><span style="width: 1px; height: 24px; background: #4c5764; margin: 0 6px"></span></sc-if>
+<sc-if value="{{ t.btn }}" hint-placeholder-val="{{ true }}"><button class="ib" style="{{ t.style }}" aria-label="{{ t.label }}" title="{{ t.tip }}" disabled="{{ t.off }}" onClick="{{ t.go }}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="{{ t.d }}"/></svg></button></sc-if>
+</sc-for>
+<span style="width: 1px; height: 24px; background: #4c5764; margin: 0 6px"></span>
+<button class="seg" style="display: flex; align-items: center; gap: 8px; padding: 0 10px" title="Show or hide the clinician tools" onClick="{{ toggleMode }}"><span style="font-size: 13px; white-space: nowrap">More tools</span><span style="{{ switchTrack }}"><span style="{{ switchKnob }}"></span></span></button>
+<button class="ib" aria-label="Menu" title="Menu" style="{{ menuStyle }}" onClick="{{ goMenu }}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><circle cx="3" cy="8" r="1.3"/><circle cx="8" cy="8" r="1.3"/><circle cx="13" cy="8" r="1.3"/></svg></button>
+</div>
+
+<div style="position: absolute; left: 16px; bottom: 30px; font-size: 12px; color: #b7bfc8; max-width: 250px">For review only. Not for diagnostic use.</div>
+
+<sc-if value="{{ isTags }}" hint-placeholder-val="{{ false }}">
+<div class="glass" style="right: 16px; top: 70px; bottom: 96px; width: 360px; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; justify-content: space-between"><span style="font-weight: 600; font-size: 15px">DICOM tags</span><span class="mono" style="font-size: 12px; color: #979faa">3 of 214</span></div>
+<label class="lbl" for="l-tagq">Search name, number or value</label><input id="l-tagq" type="text" defaultValue="echo">
+<sc-for list="{{ tagRows }}" as="r" hint-placeholder-count="3"><div style="display: flex; flex-direction: column; gap: 1px; padding: 10px 12px; border-radius: 10px; background: #0e131a"><span style="display: flex; justify-content: space-between; gap: 8px"><span style="font-weight: 600; font-size: 13px">{{ r.name }}</span><span class="mono" style="font-size: 12px; color: #979faa">{{ r.tag }} {{ r.vr }}</span></span><span class="mono" style="font-size: 13px">{{ r.value }}</span></div></sc-for>
+<button class="btn" style="align-self: flex-start">Copy value</button>
+</div>
+</sc-if>
+
+<sc-if value="{{ isExport }}" hint-placeholder-val="{{ false }}">
+<div class="glass" style="left: 50%; transform: translateX(-50%); bottom: 180px; width: 380px; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-weight: 600; font-size: 15px">Export this view as a picture</span>
+<label class="lbl" for="l-fn">File name</label><input id="l-fn" class="mono" type="text" defaultValue="voxel-MR-2026-11-17.png">
+<label style="display: flex; gap: 10px; align-items: flex-start"><input type="checkbox" style="width: 18px; height: 18px; margin: 2px 0 0; accent-color: #34c8fd"><span>Include patient details<br><span style="color: #b7bfc8; font-size: 13px">Off: the name, ID and dates are left out of the picture.</span></span></label>
+<div style="display: flex; gap: 8px; justify-content: flex-end"><button class="btn" onClick="{{ goStack }}">Cancel</button><button class="btn pri" onClick="{{ goStack }}">Save PNG</button></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isMenu }}" hint-placeholder-val="{{ false }}">
+<div class="glass" style="left: 50%; margin-left: 150px; bottom: 80px; width: 300px; border-radius: 14px; padding: 6px"><button class="mi">Open DICOM files with Voxel</button><button class="mi" disabled style="color: #979faa">Remove file association</button><span style="display: block; height: 1px; background: #4c5764; margin: 6px 4px"></span><button class="mi" onClick="{{ goSettings }}">Settings</button><button class="mi" onClick="{{ goAbout }}">About Voxel</button></div>
+</sc-if>
+
+<sc-if value="{{ showHint }}" hint-placeholder-val="{{ false }}">
+<div class="glass" style="left: 50%; margin-left: 20px; bottom: 80px; width: 300px; border-radius: 12px; padding: 10px 14px; font-size: 13px; line-height: 19px; background: #242d37">Need measurements, MPR or 3D? Turn on <span style="font-weight: 600">More tools</span>.</div>
+</sc-if>
+
+</div>
+
+<sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; background: rgba(4,8,12,.66); display: flex; align-items: center; justify-content: center">
+<div style="width: 520px; border-radius: 24px; background: #1b232c; border: 1px solid #4c5764; box-shadow: 0 12px 32px rgba(0,0,0,.45); padding: 28px; display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center">
+<svg aria-hidden="true" width="72" height="72" viewBox="0 0 256 256"><rect width="256" height="256" rx="56" fill="#131a22"/><g transform="translate(128 128) scale(1.1) translate(-128 -128)"><path d="M128 44 L200.7 86 L128 128 L55.3 86 Z" fill="#34c8fd"/><path d="M55.3 86 L128 128 L128 212 L55.3 170 Z" fill="#1a86b4"/><path d="M200.7 86 L200.7 170 L128 212 L128 128 Z" fill="#0f5778"/><path d="M128 128 L91.65 107 L128 86 L164.35 107 Z" fill="#edf0f4"/><path d="M128 128 L128 170 L91.65 149 L91.65 107 Z" fill="#a9e6fe"/><path d="M128 128 L164.35 107 L164.35 149 L128 170 Z" fill="#74d8fd"/></g></svg>
+<div style="font-family: 'Archivo', sans-serif; font-stretch: 88%; font-size: 28px; line-height: 34px; font-weight: 700">Voxel</div>
+<div class="mono" style="font-size: 13px; color: #b7bfc8">Version 0.1.0 · Graphics: DirectX 12</div>
+<div style="align-self: stretch; padding: 10px 12px; border-radius: 12px; background: #0e131a">For review only. Not for diagnostic use.</div>
+<div class="mono" style="align-self: stretch; text-align: left; height: 112px; overflow: hidden; padding: 10px 12px; border-radius: 12px; background: #0e131a; font-size: 12px; line-height: 18px; color: #b7bfc8">dicom-rs · MIT or Apache-2.0<br>wgpu · MIT or Apache-2.0<br>egui and eframe · MIT or Apache-2.0<br>glam · MIT or Apache-2.0<br>rayon · MIT or Apache-2.0<br>Archivo, IBM Plex · SIL Open Font License</div>
+<button class="btn pri" onClick="{{ goStack }}">Close</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isSettings }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; background: rgba(4,8,12,.66); display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 14px; line-height: 21px; color: #edf0f4">
+<div style="width: 720px; border-radius: 16px; background: #1b232c; border: 1px solid #4c5764; box-shadow: 0 12px 32px rgba(0,0,0,.45); padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: baseline; justify-content: space-between"><span style="font-family: 'Archivo', sans-serif; font-stretch: 88%; font-size: 28px; line-height: 34px; font-weight: 700">Settings</span><span style="font-size: 13px; color: #b7bfc8">Changes are saved as you make them.</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 11px; line-height: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #b7bfc8">Interface</span>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<button style="{{ uiW }}" onClick="{{ pickW }}"><svg aria-hidden="true" width="100%" viewBox="0 0 120 72"><rect width="120" height="72" rx="4" fill="#000"/><rect width="120" height="10" fill="#37414b"/><rect y="10" width="24" height="62" fill="#242d37"/><rect x="4" y="14" width="16" height="9" rx="2" fill="#6f7c8a"/><rect x="4" y="26" width="16" height="9" rx="2" fill="#4c5764"/><rect x="4" y="38" width="16" height="9" rx="2" fill="#4c5764"/><circle cx="72" cy="42" r="19" fill="#6f7c8a"/></svg><span style="font-weight: 600">Workstation</span><span style="font-size: 13px; line-height: 18px; color: #b7bfc8">Toolbar on top, series on the left. The default.</span></button>
+<button style="{{ uiL }}" onClick="{{ pickL }}"><svg aria-hidden="true" width="100%" viewBox="0 0 120 72"><rect width="120" height="72" rx="4" fill="#000"/><circle cx="60" cy="30" r="21" fill="#6f7c8a"/><rect x="30" y="50" width="60" height="8" rx="3" fill="#242d37"/><rect x="38" y="61" width="44" height="7" rx="3.5" fill="#4c5764"/></svg><span style="font-weight: 600">Lightbox</span><span style="font-size: 13px; line-height: 18px; color: #b7bfc8">The image fills the window. Tools float in a dock.</span></button>
+<button style="{{ uiC }}" onClick="{{ pickC }}"><svg aria-hidden="true" width="100%" viewBox="0 0 120 72"><rect width="120" height="72" rx="4" fill="#000"/><rect width="8" height="72" fill="#37414b"/><rect x="8" width="20" height="72" fill="#242d37"/><rect x="92" width="28" height="72" fill="#242d37"/><rect x="95" y="5" width="22" height="16" rx="2" fill="#4c5764"/><rect x="95" y="25" width="22" height="16" rx="2" fill="#4c5764"/><circle cx="60" cy="36" r="19" fill="#6f7c8a"/></svg><span style="font-weight: 600">Console</span><span style="font-size: 13px; line-height: 18px; color: #b7bfc8">Icon rail and an inspector with every setting.</span></button>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="{{ idMode }}" style="font-size: 11px; line-height: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #b7bfc8">Start with</label><select id="{{ idMode }}" style="height: 34px; border-radius: 6px; border: 1px solid #6f7c8a; background: #0e131a; color: #edf0f4; font: inherit; padding: 0 10px; width: 100%"><option>Simple tools</option><option>More tools</option><option>What I used last</option></select></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="{{ idOverlay }}" style="font-size: 11px; line-height: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #b7bfc8">Image information</label><select id="{{ idOverlay }}" style="height: 34px; border-radius: 6px; border: 1px solid #6f7c8a; background: #0e131a; color: #edf0f4; font: inherit; padding: 0 10px; width: 100%"><option>Full</option><option>Minimal</option><option>Off</option></select></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="{{ idQuality }}" style="font-size: 11px; line-height: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #b7bfc8">3D quality</label><select id="{{ idQuality }}" style="height: 34px; border-radius: 6px; border: 1px solid #6f7c8a; background: #0e131a; color: #edf0f4; font: inherit; padding: 0 10px; width: 100%"><option>Automatic</option><option>Low</option><option>Medium</option><option>High</option></select></div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px; border-radius: 10px; background: #0e131a; border: 1px solid #37414b"><span><span style="font-weight: 600">DICOM files open with Voxel</span><br><span style="font-size: 13px; color: #b7bfc8">Voxel is offered in Explorer for .dcm, .dicom and .ima files, for your account only.</span></span><button style="height: 34px; padding: 0 14px; border-radius: 6px; border: 1px solid #6f7c8a; background: #1b232c; color: #edf0f4; font: inherit; cursor: pointer; white-space: nowrap">Remove</button></div>
+<div style="display: flex; justify-content: space-between"><button style="height: 34px; padding: 0 14px; border-radius: 6px; border: 1px solid #6f7c8a; background: #1b232c; color: #edf0f4; font: inherit; cursor: pointer">Reset to defaults</button><button style="height: 34px; padding: 0 18px; border-radius: 6px; border: 1px solid #34c8fd; background: #34c8fd; color: #04111c; font: inherit; font-weight: 600; cursor: pointer" onClick="{{ goStack }}">Done</button></div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isWelcome }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; background: #131a22; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 14px; line-height: 21px; color: #edf0f4">
+<svg aria-hidden="true" width="56" height="64" viewBox="52 40 152 176"><path d="M128 44 L200.7 86 L128 128 L55.3 86 Z" fill="#34c8fd"/><path d="M55.3 86 L128 128 L128 212 L55.3 170 Z" fill="#1a86b4"/><path d="M200.7 86 L200.7 170 L128 212 L128 128 Z" fill="#0f5778"/><path d="M128 128 L91.65 107 L128 86 L164.35 107 Z" fill="#edf0f4"/><path d="M128 128 L128 170 L91.65 149 L91.65 107 Z" fill="#a9e6fe"/><path d="M128 128 L164.35 107 L164.35 149 L128 170 Z" fill="#74d8fd"/></svg>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 8px"><span style="font-family: 'Archivo', sans-serif; font-stretch: 88%; font-size: 40px; line-height: 44px; font-weight: 700; letter-spacing: -0.01em">Choose how Voxel looks</span><span style="font-size: 16px; color: #b7bfc8">All three do the same things. You can change this later in Settings.</span></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; width: 960px">
+<button style="{{ uiW }}" onClick="{{ pickW }}"><svg aria-hidden="true" width="100%" viewBox="0 0 120 72"><rect width="120" height="72" rx="4" fill="#000"/><rect width="120" height="10" fill="#37414b"/><rect y="10" width="24" height="62" fill="#242d37"/><rect x="4" y="14" width="16" height="9" rx="2" fill="#6f7c8a"/><rect x="4" y="26" width="16" height="9" rx="2" fill="#4c5764"/><rect x="4" y="38" width="16" height="9" rx="2" fill="#4c5764"/><circle cx="72" cy="42" r="19" fill="#6f7c8a"/></svg><span style="display: flex; align-items: center; gap: 8px"><span style="font-weight: 600; font-size: 15px">Workstation</span><span style="font-size: 11px; font-weight: 600; padding: 1px 6px; border-radius: 3px; background: rgba(52,200,253,.16); color: #4bcefd">Recommended</span></span><span style="font-size: 13px; line-height: 18px; color: #b7bfc8">Toolbar on top, series on the left. The layout radiology staff already know.</span></button>
+<button style="{{ uiL }}" onClick="{{ pickL }}"><svg aria-hidden="true" width="100%" viewBox="0 0 120 72"><rect width="120" height="72" rx="4" fill="#000"/><circle cx="60" cy="30" r="21" fill="#6f7c8a"/><rect x="30" y="50" width="60" height="8" rx="3" fill="#242d37"/><rect x="38" y="61" width="44" height="7" rx="3.5" fill="#4c5764"/></svg><span style="font-weight: 600; font-size: 15px">Lightbox</span><span style="font-size: 13px; line-height: 18px; color: #b7bfc8">The image fills the window and the tools float in a dock. The simplest to use.</span></button>
+<button style="{{ uiC }}" onClick="{{ pickC }}"><svg aria-hidden="true" width="100%" viewBox="0 0 120 72"><rect width="120" height="72" rx="4" fill="#000"/><rect width="8" height="72" fill="#37414b"/><rect x="8" width="20" height="72" fill="#242d37"/><rect x="92" width="28" height="72" fill="#242d37"/><rect x="95" y="5" width="22" height="16" rx="2" fill="#4c5764"/><rect x="95" y="25" width="22" height="16" rx="2" fill="#4c5764"/><circle cx="60" cy="36" r="19" fill="#6f7c8a"/></svg><span style="font-weight: 600; font-size: 15px">Console</span><span style="font-size: 13px; line-height: 18px; color: #b7bfc8">An icon rail for views and an inspector that shows every setting and figure.</span></button>
+</div>
+<button style="height: 40px; padding: 0 28px; border-radius: 6px; border: 1px solid #34c8fd; background: #34c8fd; color: #04111c; font: inherit; font-weight: 600; cursor: pointer" onClick="{{ goEmpty }}">Continue</button>
+<span style="font-size: 12px; color: #b7bfc8">For review only. Not for diagnostic use.</span>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"screen":{"editor":"enum","default":"stack","options":["empty","xray","loading","stack","mpr","view3d","layout","tags","export","only2d","refusal","menu","about","settings","welcome"]},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+renderVals() {
+const s0 = (this.state && this.state.screen) || this.props.screen || 'stack';
+const s = s0 === 'settings' ? 'stack' : (s0 === 'welcome' ? 'empty' : s0);
+const ui = (this.state && this.state.ui) || (s0 === 'welcome' ? 'W' : 'L');
+const uiCard = (k) => 'display:flex;flex-direction:column;gap:8px;padding:12px;border-radius:10px;text-align:left;font:inherit;color:#edf0f4;cursor:pointer;border:1px solid ' + (ui === k ? '#34c8fd;background:rgba(52,200,253,.16)' : '#37414b;background:#131a22');
+const go = (x) => () => this.setState({ screen: x });
+const is = (...a) => a.includes(s);
+const plain = is('empty', 'xray', 'refusal');
+const none = is('empty', 'refusal');
+const noVolume = s === 'only2d';
+const on = 'background:#34c8fd;color:#04111c';
+const I = {
+open: 'M2 4h4l1.5 2H14v7H2z', fit: 'M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4', reset: 'M3 8a5 5 0 1 0 1.6-3.6M3 2v3h3',
+invert: 'M8 2a6 6 0 1 0 0 12zM8 2a6 6 0 0 1 0 12', length: 'M2 12L12 2l2 2L4 14zM5 9l1 1M7 7l1 1M9 5l1 1',
+angle: 'M3 13h10M3 13L11 3M7 13a4 4 0 0 0-1.2-2.9', clear: 'M3 4h10M6 4V2h4v2M4.5 4l.7 10h5.6l.7-10', layout: 'M2 2h12v12H2zM8 2v12',
+link: 'M6.5 9.5l3-3M5 8L3.5 9.5a2.1 2.1 0 0 0 3 3L8 11M8 5l1.5-1.5a2.1 2.1 0 0 1 3 3L11 8', overlay: 'M2 3h12v10H2zM4 6h4M4 10h3M11 6h1',
+tags: 'M2 3h12M2 6.5h12M2 10h12M2 13.5h8', exp: 'M8 10V2M5 5l3-3 3 3M3 9v5h10V9',
+light: 'M8 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM8 1v2M8 13v2M1 8h2M13 8h2', dark: 'M13 9.5A5.5 5.5 0 0 1 6.5 3 5.5 5.5 0 1 0 13 9.5z', auto: 'M3 13L8 3l5 10M5 9.5h6'
+};
+const T = (label, key, d, target, active, off) => ({ btn: true, sep: false, label, tip: label + ' (' + key + ')', d, go: target ? go(target) : () => {}, style: active ? on : '', off: !!off });
+const SEP = { btn: false, sep: true };
+const tools = plain
+? [T('Open', 'Ctrl O', I.open, 'xray'), SEP, T('Fit', 'F', I.fit, null, false, none), T('Reset', 'R', I.reset, null, false, none), SEP, T('Lighter', '+', I.light, null, false, none), T('Darker', '-', I.dark, null, false, none), T('Auto brightness', '0', I.auto, null, false, none)]
+: [T('Open', 'Ctrl O', I.open, 'loading'), SEP, T('Fit', 'F', I.fit), T('Reset', 'R', I.reset), T('Invert', 'I', I.invert), SEP,
+T('Length', 'L', I.length, null, false, s === 'view3d'), T('Angle', 'A', I.angle, null, false, s === 'view3d'), T('Clear measurements', 'Del', I.clear), SEP,
+T('Layout', 'G', I.layout, 'layout', s === 'layout'), T('Link scrolling', 'K', I.link, null, s === 'layout'), SEP,
+T('Overlay', 'O', I.overlay), T('Tags', 'T', I.tags, 'tags', s === 'tags'), T('Export', 'Ctrl E', I.exp, 'export', s === 'export')];
+const sel = 'border-color:#34c8fd;background:rgba(52,200,253,.16)';
+const stackish = is('stack', 'loading', 'tags', 'export', 'only2d', 'menu', 'about', 'layout');
+return {
+isSettings: s0 === 'settings', isWelcome: s0 === 'welcome', goSettings: go('settings'), goEmpty: go('empty'),
+uiW: uiCard('W'), uiL: uiCard('L'), uiC: uiCard('C'), pickW: () => this.setState({ ui: 'W' }), pickL: () => this.setState({ ui: 'L' }), pickC: () => this.setState({ ui: 'C' }),
+idMode: 'l-set-mode', idOverlay: 'l-set-overlay', idQuality: 'l-set-quality',
+tools, isEmpty: s === 'empty', isXray: s === 'xray', isRefusal: s === 'refusal', isMpr: s === 'mpr', is3d: s === 'view3d', isLayout: s === 'layout',
+isTags: s === 'tags', isExport: s === 'export', isMenu: s === 'menu', isAbout: s === 'about', isLoading: s === 'loading', noVolume,
+isSingle: is('stack', 'loading', 'tags', 'export', 'only2d', 'menu', 'about'), hasStudy: !none, clinician: !plain, showHint: s === 'empty',
+fullOverlay: s !== 'loading', showMeasure: is('stack', 'tags', 'export', 'menu', 'about'),
+stageBg: none ? '#131a22' : '#000',
+singleImg: noVolume ? 'filter:blur(1px)' : (s === 'loading' ? 'opacity:.4' : ''),
+seriesName: noVolume ? 'Localiser' : 'T2 axial', sliceText: noVolume ? 'Image 2 of 3' : 'Slice 18 of 36',
+studyLine: s === 'xray' ? 'DX Chest · 12 Nov 2026' : 'MR Brain · 12 Nov 2026',
+segStack: stackish ? on + ';font-weight:600' : '', segMpr: s === 'mpr' ? on + ';font-weight:600' : '', seg3d: s === 'view3d' ? on + ';font-weight:600' : '',
+cardT1: is('mpr', 'view3d') ? sel : '', cardT2: stackish && !noVolume ? sel : '', cardLoc: noVolume ? sel : '',
+switchTrack: 'display:inline-flex;width:34px;height:18px;border-radius:999px;padding:2px;box-sizing:border-box;' + (plain ? 'background:#37414b;justify-content:flex-start' : 'background:#34c8fd;justify-content:flex-end'),
+switchKnob: 'width:14px;height:14px;border-radius:999px;background:' + (plain ? '#b7bfc8' : '#04111c'),
+menuStyle: s === 'menu' ? on : '',
+toggleMode: go(plain ? 'stack' : 'xray'), goMenu: go(s === 'menu' ? 'stack' : 'menu'), goStack: go('stack'), goMpr: go('mpr'), go3d: go('view3d'), goXray: go('xray'), goLoading: go('loading'), goAbout: go('about'), goOnly2d: go('only2d'),
+tagRows: [
+{ name: 'Echo Time', tag: '(0018,0081)', vr: 'DS', value: '90' },
+{ name: 'Echo Train Length', tag: '(0018,0091)', vr: 'IS', value: '16' },
+{ name: 'Echo Numbers', tag: '(0018,0086)', vr: 'IS', value: '1' }
+]
+};
+}
+}
+</script>
+</body>
+</html>

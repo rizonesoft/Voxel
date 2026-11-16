@@ -1,0 +1,309 @@
+{
+ "interface": "lightbox",
+ "screen": "refusal",
+ "window": [
+  1440,
+  900
+ ],
+ "controls": [
+  {
+   "kind": "button",
+   "label": "Open another file",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    588,
+    518,
+    146,
+    36
+   ],
+   "fill": "rgb(52, 200, 253)",
+   "ink": "rgb(4, 17, 28)",
+   "radius": "999px"
+  },
+  {
+   "kind": "button",
+   "label": "Open folder",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    744,
+    518,
+    108,
+    36
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "999px"
+  },
+  {
+   "kind": "button",
+   "label": "Open",
+   "key": "Ctrl O",
+   "tooltip": "Open (Ctrl O)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    475,
+    834,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "Fit",
+   "key": "F",
+   "tooltip": "Fit (F)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    536,
+    834,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "Reset",
+   "key": "R",
+   "tooltip": "Reset (R)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    582,
+    834,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "Lighter",
+   "key": "+",
+   "tooltip": "Lighter (+)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    643,
+    834,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "Darker",
+   "key": "-",
+   "tooltip": "Darker (-)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    689,
+    834,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "Auto brightness",
+   "key": "0",
+   "tooltip": "Auto brightness (0)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    735,
+    834,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "More tools",
+   "key": null,
+   "tooltip": "Show or hide the clinician tools",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    796,
+    838,
+    124,
+    36
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "999px"
+  },
+  {
+   "kind": "button",
+   "label": "Menu",
+   "key": null,
+   "tooltip": "Menu",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    921,
+    834,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  }
+ ],
+ "texts": [
+  {
+   "text": "Voxel",
+   "rect": [
+    38,
+    8,
+    32,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "– □ ×",
+   "rect": [
+    1333,
+    9,
+    95,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "This file is not a DICOM image",
+   "rect": [
+    467,
+    357,
+    505,
+    43
+   ],
+   "font": "Archivo",
+   "size": "40px",
+   "weight": "700",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "holiday-photo.png",
+   "rect": [
+    654,
+    417,
+    133,
+    17
+   ],
+   "font": "IBM Plex Mono",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Voxel opens medical images in the DICOM format. Scans on a disc are usually in a folder named DICOM.",
+   "rect": [
+    484,
+    452,
+    472,
+    44
+   ],
+   "font": "IBM Plex Sans",
+   "size": "16px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Open another file",
+   "rect": [
+    605,
+    526,
+    112,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "600",
+   "ink": "rgb(4, 17, 28)"
+  },
+  {
+   "text": "Open folder",
+   "rect": [
+    761,
+    526,
+    74,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "More tools",
+   "rect": [
+    806,
+    848,
+    62,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "For review only. Not for diagnostic use.",
+   "rect": [
+    16,
+    852,
+    207,
+    15
+   ],
+   "font": "IBM Plex Sans",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  }
+ ]
+}

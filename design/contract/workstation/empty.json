@@ -1,0 +1,439 @@
+{
+ "interface": "workstation",
+ "screen": "empty",
+ "window": [
+  1440,
+  900
+ ],
+ "controls": [
+  {
+   "kind": "button",
+   "label": "Open",
+   "key": "Ctrl O",
+   "tooltip": "Open (Ctrl O)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    10,
+    46,
+    76,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Fit",
+   "key": "F",
+   "tooltip": "Fit (F)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    103,
+    46,
+    60,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Reset",
+   "key": "R",
+   "tooltip": "Reset (R)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    165,
+    46,
+    78,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Lighter",
+   "key": "+",
+   "tooltip": "Lighter (+)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    261,
+    46,
+    85,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Darker",
+   "key": "-",
+   "tooltip": "Darker (-)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    348,
+    46,
+    84,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Auto",
+   "key": "0",
+   "tooltip": "Auto (0)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    434,
+    46,
+    73,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "More tools",
+   "key": null,
+   "tooltip": "Show or hide the clinician tools",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1265,
+    46,
+    125,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Menu",
+   "key": null,
+   "tooltip": "Menu",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1392,
+    46,
+    38,
+    34
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Open file Ctrl O",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    596,
+    525,
+    135,
+    34
+   ],
+   "fill": "rgb(52, 200, 253)",
+   "ink": "rgb(4, 17, 28)",
+   "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Open folder",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    740,
+    525,
+    104,
+    34
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "6px"
+  }
+ ],
+ "texts": [
+  {
+   "text": "Voxel",
+   "rect": [
+    40,
+    9,
+    35,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "– □ ×",
+   "rect": [
+    1333,
+    11,
+    95,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "Open",
+   "rect": [
+    44,
+    55,
+    31,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Fit",
+   "rect": [
+    137,
+    55,
+    15,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(111, 124, 138)"
+  },
+  {
+   "text": "Reset",
+   "rect": [
+    199,
+    55,
+    33,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(111, 124, 138)"
+  },
+  {
+   "text": "Lighter",
+   "rect": [
+    295,
+    55,
+    40,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(111, 124, 138)"
+  },
+  {
+   "text": "Darker",
+   "rect": [
+    382,
+    55,
+    39,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(111, 124, 138)"
+  },
+  {
+   "text": "Auto",
+   "rect": [
+    468,
+    55,
+    28,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(111, 124, 138)"
+  },
+  {
+   "text": "More tools",
+   "rect": [
+    1276,
+    55,
+    62,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Drop a DICOM file or folder here",
+   "rect": [
+    533,
+    431,
+    374,
+    31
+   ],
+   "font": "Archivo",
+   "size": "28px",
+   "weight": "700",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "or open one from your computer or a disc.",
+   "rect": [
+    589,
+    485,
+    263,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Open file",
+   "rect": [
+    611,
+    532,
+    62,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "600",
+   "ink": "rgb(4, 17, 28)"
+  },
+  {
+   "text": "Ctrl O",
+   "rect": [
+    672,
+    534,
+    43,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "600",
+   "ink": "rgb(4, 17, 28)"
+  },
+  {
+   "text": "Open folder",
+   "rect": [
+    755,
+    532,
+    74,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Need measurements, MPR or 3D? Turn on",
+   "rect": [
+    519,
+    619,
+    246,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "More tools",
+   "rect": [
+    765,
+    619,
+    63,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "at the top right.",
+   "rect": [
+    828,
+    619,
+    93,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "For review only. Not for diagnostic use.",
+   "rect": [
+    12,
+    879,
+    207,
+    15
+   ],
+   "font": "IBM Plex Sans",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "DirectX 12",
+   "rect": [
+    1356,
+    879,
+    72,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  }
+ ]
+}

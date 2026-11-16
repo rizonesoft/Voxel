@@ -1,0 +1,550 @@
+{
+ "interface": "lightbox",
+ "screen": "welcome",
+ "window": [
+  1440,
+  900
+ ],
+ "controls": [
+  {
+   "kind": "button",
+   "label": "Open file",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    615,
+    536,
+    92,
+    36
+   ],
+   "fill": "rgb(52, 200, 253)",
+   "ink": "rgb(4, 17, 28)",
+   "radius": "999px"
+  },
+  {
+   "kind": "button",
+   "label": "Open folder",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    717,
+    536,
+    108,
+    36
+   ],
+   "fill": "rgb(27, 35, 44)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "999px"
+  },
+  {
+   "kind": "button",
+   "label": "Open",
+   "key": "Ctrl O",
+   "tooltip": "Open (Ctrl O)",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    475,
+    834,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "Fit",
+   "key": "F",
+   "tooltip": "Fit (F)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    536,
+    834,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "Reset",
+   "key": "R",
+   "tooltip": "Reset (R)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    582,
+    834,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "Lighter",
+   "key": "+",
+   "tooltip": "Lighter (+)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    643,
+    834,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "Darker",
+   "key": "-",
+   "tooltip": "Darker (-)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    689,
+    834,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "Auto brightness",
+   "key": "0",
+   "tooltip": "Auto brightness (0)",
+   "enabled": false,
+   "value": null,
+   "options": null,
+   "rect": [
+    735,
+    834,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(111, 124, 138)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "More tools",
+   "key": null,
+   "tooltip": "Show or hide the clinician tools",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    796,
+    838,
+    124,
+    36
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "999px"
+  },
+  {
+   "kind": "button",
+   "label": "Menu",
+   "key": null,
+   "tooltip": "Menu",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    921,
+    834,
+    44,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "WorkstationRecommendedToolbar on top, series on the left. The layout radiology staff already know.",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    240,
+    353,
+    309,
+    271
+   ],
+   "fill": "rgba(52, 200, 253, 0.16)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "LightboxThe image fills the window and the tools float in a dock. The simplest to use.",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    565,
+    353,
+    309,
+    271
+   ],
+   "fill": "rgb(19, 26, 34)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "ConsoleAn icon rail for views and an inspector that shows every setting and figure.",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    891,
+    353,
+    309,
+    271
+   ],
+   "fill": "rgb(19, 26, 34)",
+   "ink": "rgb(237, 240, 244)",
+   "radius": "10px"
+  },
+  {
+   "kind": "button",
+   "label": "Continue",
+   "key": null,
+   "tooltip": null,
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    662,
+    651,
+    116,
+    40
+   ],
+   "fill": "rgb(52, 200, 253)",
+   "ink": "rgb(4, 17, 28)",
+   "radius": "6px"
+  }
+ ],
+ "texts": [
+  {
+   "text": "Voxel",
+   "rect": [
+    38,
+    8,
+    32,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "– □ ×",
+   "rect": [
+    1333,
+    9,
+    95,
+    15
+   ],
+   "font": "IBM Plex Mono",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(151, 159, 170)"
+  },
+  {
+   "text": "Drop your scan here",
+   "rect": [
+    550,
+    429,
+    340,
+    43
+   ],
+   "font": "Archivo",
+   "size": "40px",
+   "weight": "700",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "A DICOM file, a folder, or the disc from your radiologist.",
+   "rect": [
+    524,
+    491,
+    393,
+    20
+   ],
+   "font": "IBM Plex Sans",
+   "size": "16px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Open file",
+   "rect": [
+    632,
+    544,
+    58,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "600",
+   "ink": "rgb(4, 17, 28)"
+  },
+  {
+   "text": "Open folder",
+   "rect": [
+    734,
+    544,
+    74,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "More tools",
+   "rect": [
+    806,
+    848,
+    62,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "For review only. Not for diagnostic use.",
+   "rect": [
+    16,
+    852,
+    207,
+    15
+   ],
+   "font": "IBM Plex Sans",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Need measurements, MPR or 3D? Turn on",
+   "rect": [
+    755,
+    772,
+    243,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "More tools",
+   "rect": [
+    755,
+    791,
+    63,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": ".",
+   "rect": [
+    818,
+    791,
+    4,
+    17
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Choose how Voxel looks",
+   "rect": [
+    518,
+    252,
+    404,
+    43
+   ],
+   "font": "Archivo",
+   "size": "40px",
+   "weight": "700",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "All three do the same things. You can change this later in Settings.",
+   "rect": [
+    484,
+    304,
+    471,
+    20
+   ],
+   "font": "IBM Plex Sans",
+   "size": "16px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Workstation",
+   "rect": [
+    253,
+    545,
+    85,
+    19
+   ],
+   "font": "IBM Plex Sans",
+   "size": "15px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "Recommended",
+   "rect": [
+    352,
+    547,
+    77,
+    14
+   ],
+   "font": "IBM Plex Sans",
+   "size": "11px",
+   "weight": "600",
+   "ink": "rgb(75, 206, 253)"
+  },
+  {
+   "text": "Toolbar on top, series on the left. The layout radiology staff already know.",
+   "rect": [
+    253,
+    574,
+    255,
+    35
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Lightbox",
+   "rect": [
+    578,
+    544,
+    60,
+    19
+   ],
+   "font": "IBM Plex Sans",
+   "size": "15px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "The image fills the window and the tools float in a dock. The simplest to use.",
+   "rect": [
+    578,
+    572,
+    277,
+    35
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Console",
+   "rect": [
+    904,
+    545,
+    56,
+    19
+   ],
+   "font": "IBM Plex Sans",
+   "size": "15px",
+   "weight": "600",
+   "ink": "rgb(237, 240, 244)"
+  },
+  {
+   "text": "An icon rail for views and an inspector that shows every setting and figure.",
+   "rect": [
+    904,
+    573,
+    247,
+    35
+   ],
+   "font": "IBM Plex Sans",
+   "size": "13px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  },
+  {
+   "text": "Continue",
+   "rect": [
+    691,
+    662,
+    58,
+    18
+   ],
+   "font": "IBM Plex Sans",
+   "size": "14px",
+   "weight": "600",
+   "ink": "rgb(4, 17, 28)"
+  },
+  {
+   "text": "For review only. Not for diagnostic use.",
+   "rect": [
+    616,
+    722,
+    207,
+    15
+   ],
+   "font": "IBM Plex Sans",
+   "size": "12px",
+   "weight": "400",
+   "ink": "rgb(183, 191, 200)"
+  }
+ ]
+}
