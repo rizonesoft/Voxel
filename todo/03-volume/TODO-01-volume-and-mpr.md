@@ -16,6 +16,7 @@ track: M3
 ## Inputs
 
 - `docs/plans/2026-11-17-voxel-tech-stack.md`: "How each view works" (MPR), "Risks" (geometry, our own renderer) and "Source layout (planned)" (`src/volume/`, `src/render/`).
+- `design/SPEC.md`, `design/contract/` and `design/screens/`: the approved interface. Every control named in this file is registered once in `src/ui/controls.rs` and every panel once in `src/ui/panels.rs` (D02 T02 §2), and is drawn by whichever of the three interfaces is active. Where a section says toolbar, read the interface's tool area: the toolbar in Workstation, the dock in Lightbox, the rail or an inspector panel in Console. Placement, size and look are fixed by the contract, not by this file.
 - `src/dicom/study.rs` (`Series`, `ImageRef`) and `src/dicom/loader.rs` from D01 T01.
 - `src/ui/viewport.rs` and `src/ui/view_state.rs` from D02 T01 §1, §2 and §5.
 - The DICOM standard, PS3.3 C.7.6.2 (the image plane module), for the mapping from pixel to patient coordinates used in §1.
@@ -95,9 +96,9 @@ The view clinicians ask for by name: the same point shown in three perpendicular
 **Phase:** 3
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so the layout follows the common three-plane MPR convention
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** look at one point of the anatomy from three directions at once and move through the volume in any of them
-**Treatment:** three viewports (axial top left, sagittal top right, coronal bottom left) on black, each with two coloured crosshair lines marking where the other two planes cut it, in a fixed colour per plane
+**Treatment:** the planes as `design/SPEC.md` lays them out per interface (a 2 by 2 grid in Workstation and Console, whose fourth pane D04 T01 §1 fills with the 3D view; one large axial pane with sagittal and coronal stacked beside it in Lightbox), each with two crosshair lines in the colours `plane-axial`, `plane-sagittal` and `plane-coronal` of the planes that cut it
 **Chrome:** an MPR button in the toolbar (key M) that switches the open series between the stack view and the MPR layout; each viewport keeps the overlay and orientation letters of D02 T01 §6
 
 **Build order:**
@@ -112,6 +113,7 @@ The view clinicians ask for by name: the same point shown in three perpendicular
 - [ ] Write `MprView` in `src/ui/mpr.rs`: three viewports sharing one focus point; a click or drag in one sets the focus and the other two planes move to pass through it; the wheel moves a plane along its normal by one voxel spacing. Done when: a test clicks a known voxel in the axial view and asserts the sagittal and coronal planes now contain that point.
 - [ ] Draw the crosshair lines in `src/ui/mpr.rs` at the focus point with a small gap at the centre, and share window/level across the three views while each keeps its own zoom and pan. Done when: a test asserts the line positions for a known focus and that a window change in one view applies to all.
 - [ ] Add the MPR button to `src/ui/toolbar.rs` with the M key, switching back to the stack view on a second press at the slice nearest the focus point. Done when: a test toggles twice and lands on the expected slice index.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `mpr` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `mpr: three-plane layout with linked crosshairs`
 
 **Test checkpoint:** `cargo test --test render_mpr` passes; drawing one texel per output pixel fails the anisotropic sphere test.
@@ -123,7 +125,7 @@ Anatomy rarely lines up with the scanner. Rotating the crosshair in one view til
 **Phase:** 3
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so the interaction follows the common rotate-the-crosshair convention
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** tilt the cut planes to line up with a structure, and get back to the standard planes
 **Treatment:** small round handles on the crosshair lines away from the centre; dragging a handle rotates both lines together and the angle shows beside the handle while dragging
 **Chrome:** a Reset Planes button beside the MPR button (key Shift+R), disabled while the planes are standard
@@ -138,6 +140,7 @@ Anatomy rarely lines up with the scanner. Rotating the crosshair in one view til
 - [ ] Draw the rotation handles in `src/ui/mpr.rs` and map a handle drag to `MprPlanes::rotate`, showing the angle in degrees while dragging. Done when: a test drags a handle through a known arc and reads the expected angle.
 - [ ] Recompute the edge letters for oblique planes in `src/ui/overlay.rs`, showing compound letters (such as "LA") when the direction lies between two axes. Done when: a unit test at 45 degrees between left and anterior asserts "LA".
 - [ ] Add `MprPlanes::reset()` and the Reset Planes button in `src/ui/toolbar.rs` with Shift+R, returning to the standard planes through the volume centre. Done when: a test rotates, moves the focus, resets, and asserts the initial planes. Cheaper substitute: resetting only the angle and leaving the focus moved must fail the test.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `mpr` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `mpr: oblique rotation and plane reset`
 
 **Test checkpoint:** `cargo test plane` and `cargo test --test render_mpr` pass; rotating about the volume centre instead of the focus point fails the tilted-rod test.
@@ -149,7 +152,7 @@ The promise from the foundation plan: the 2D stack always works. When a series c
 **Phase:** 3
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so behaviour is specified here
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** understand why MPR or 3D is not offered for this series, without losing the image already on screen
 **Treatment:** the MPR button is shown disabled, and its tooltip carries the refusal sentence, for example "This series has gaps between slices, so it cannot be shown in 3D"
 **Chrome:** the same disabled state and tooltip on the 3D button once D04 T01 §1 adds it; a small "2D only" tag on the series card in the strip
@@ -164,6 +167,7 @@ The promise from the foundation plan: the 2D stack always works. When a series c
 - [ ] Show the "2D only" tag on the series card in `src/ui/series_strip.rs` for a refused series, and no tag for a single-image series (an X-ray is not a failed volume). Done when: a test asserts the tag on the localiser phantom and none on a single X-ray.
 - [ ] Offer each accepted sub-series of a split series (§1, the two-echo case) as its own card in `src/ui/series_strip.rs`, named with the split value such as "TE 30 ms". Done when: the two-echo phantom shows two cards and MPR opens on each.
 - [ ] Switch to the stack view in `src/ui/mpr.rs` when the open series is replaced by a refused one while the MPR layout is showing. Done when: a test opens an accepted series in MPR, then clicks a refused card, and the viewport is the stack view of the refused series.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `only2d` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `mpr: volume refusal shown, 2D stack kept`
 
 **Test checkpoint:** `cargo test --test volume_refusal_ui` passes; hiding the MPR button instead of disabling it with a tooltip fails the tooltip test.

@@ -2,7 +2,7 @@
 
 | File | Scope | Status |
 | ---- | ----- | ------ |
-| TODO-01-packaging.md | Label decision, portable build, file association, About, acceptance | active |
+| TODO-01-packaging.md | Label decision, portable build, installer, file association, About | active |
 
 ## Completed
 

@@ -11,13 +11,15 @@ track: M1
 
 > **Goal:** A user double-clicks a DICOM file, or drops a file or folder on Voxel, and sees the image in under a second; they adjust brightness and contrast, zoom and pan, scroll through an MRI series and pick another series from a strip, and every one of those responds on the next frame.
 
-> **Current state:** Measured 2026-11-17. No code exists. The empty window and the GPU adapter choice come from D00 T01 §3, and the image model, refusals, scan and background loader from D01 T01. There is no design SPEC: the surfaces below are specified in each section's Fidelity, Job, Treatment and Chrome lines.
+> **Current state:** Measured 2026-11-17. No code exists. The empty window and the GPU adapter choice come from D00 T01 §3, and the image model, refusals, scan and background loader from D01 T01. The interface is designed and approved: `design/SPEC.md`, with three interfaces built by T02.
 
 ## Inputs
 
 - `docs/plans/2026-11-17-voxel-tech-stack.md`: "How each view works" (2D), "Targets" (first image under 1 second; window/level every frame) and "Source layout (planned)" (`src/render/`, `src/ui/`).
+- `design/SPEC.md`, `design/contract/` and `design/screens/`: the approved interface. Every control named in this file is registered once in `src/ui/controls.rs` and every panel once in `src/ui/panels.rs` (D02 T02 §2), and is drawn by whichever of the three interfaces is active. Where a section says toolbar, read the interface's tool area: the toolbar in Workstation, the dock in Lightbox, the rail or an inspector panel in Console. Placement, size and look are fixed by the contract, not by this file.
 - `src/dicom/image.rs`, `src/dicom/error.rs`, `src/dicom/scan.rs` and `src/dicom/loader.rs` from D01 T01 §1 to §4.
 - `src/app.rs` and `src/render/gpu.rs` from D00 T01 §3.
+- -> XREF: T02 §3 -- the Workstation shell that draws the controls §2 registers (the other two shells: T02 §5, T02 §6)
 - The DICOM standard, PS3.3 C.11.2 (the VOI LUT linear window function), for the window/level formula in §1.
 
 ## Outcome
@@ -37,15 +39,15 @@ track: M1
 
 | Order | Section | Deliverable | Depends On | Status |
 | ----- | ------- | ----------- | ---------- | ------ |
-| 1 | §1 | 16-bit image texture and the window/level shader | D00 T01 §3, D01 T01 §1 | [ ] |
-| 2 | §2 | Zoom, pan, invert, fit and reset | §1 | [ ] |
-| 3 | §3 | Open by argument, drag and drop, and the Open dialog | §1, D01 T01 §2 | [ ] |
-| 4 | §4 | Start time measured against the one second target | §3 | [ ] |
+| 1 | §1 | 16-bit image texture and window/level shader | D00 T01 §3, D01 T01 §1 | [ ] |
+| 2 | §2 | Zoom, pan, invert, fit and reset | §1, T02 §5, T02 §6 | [ ] |
+| 3 | §3 | Open by argument, drop and dialog | §1, §2, D01 T01 §2 | [ ] |
+| 4 | §4 | Start time against the one second target | §3 | [ ] |
 | 5 | §5 | Series strip and stack scrolling | §3, D01 T01 §4, D01 T01 §5 | [ ] |
 | 6 | §6 | Image information overlay and orientation markers | §5 | [ ] |
 | 7 | §7 | Settings file for window size and last folder | §3 | [ ] |
 
-## 1. 16-bit image texture and the window/level shader
+## 1. 16-bit image texture and window/level shader
 
 This is the core of the 2D view and of the "fast" claim: the stored values go to the GPU once, and brightness and contrast are a pair of numbers the shader reads each frame. Converting the image to 8-bit on the CPU would make every adjustment a re-render of millions of pixels and would throw away the detail a radiograph holds.
 
@@ -76,7 +78,7 @@ The controls a patient and a clinician both expect, each changing only shader un
 **Phase:** 1
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so behaviour is specified here and the look is the `egui` default
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** make the image brighter or darker, look closer at a detail, and get back to the starting view
 **Treatment:** the image fills the viewport on black; no control sits on top of the image
 **Chrome:** a slim toolbar above the viewport with Invert, Fit and Reset buttons, each with a tooltip naming its key
@@ -93,18 +95,19 @@ The controls a patient and a clinician both expect, each changing only shader un
 - [ ] Write the toolbar in `src/ui/toolbar.rs` with Invert, Fit and Reset buttons that call the same functions as the keys. Done when: a test driving the `egui` context clicks Reset and observes the reset state. Cheaper substitute: a button with its own copy of the reset logic must fail review; keys and buttons share one function.
 - [ ] Disable the toolbar buttons and ignore the gestures when no image is open, in `src/ui/toolbar.rs` and `src/ui/view_state.rs`. Done when: a test with no image asserts the buttons are disabled and a drag changes nothing.
 - [ ] Add `tests/view_gestures.rs`: render an image, apply a zoom of 2 about a known point through `ViewState`, and read back that the same image pixel is still under the cursor. Done when: the test passes and fails if zoom is applied about the viewport centre instead.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `xray` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `viewer: zoom, pan, invert, fit and reset`
 
 **Test checkpoint:** `cargo test view_state` and `cargo test --test view_gestures` pass; zooming about the viewport centre instead of the cursor fails the gesture test.
 
-## 3. Open by argument, drag and drop, and the Open dialog
+## 3. Open by argument, drop and dialog
 
 Three ways in, one code path. The command-line argument is what a double-click in Explorer uses once the file association exists (D06 T01 §3), so it is the path the speed target is measured on. A refusal from D01 T01 §2 becomes one plain sentence in the window, never a crash and never a silent blank.
 
 **Phase:** 1
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so behaviour is specified here and the look is the `egui` default
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** get a study on screen from wherever it is: a double-clicked file, a dragged folder, or a disc
 **Treatment:** while loading, the file name and a thin progress line; on refusal, the plain sentence centred where the image would be, with the file name under it
 **Chrome:** an Open button first in the toolbar (Ctrl+O) with a menu of Open File and Open Folder; the Windows title bar shows the file or folder name
@@ -120,11 +123,12 @@ Three ways in, one code path. The command-line argument is what a double-click i
 - [ ] Add the Open button with Open File and Open Folder in `src/ui/toolbar.rs`, using the native Windows dialogs through the `rfd` crate, bound to Ctrl+O and Ctrl+Shift+O. Done when: choosing a corpus file in the dialog shows it, and cancelling the dialog changes nothing.
 - [ ] Show `LoadError::user_message()` or `ScanError`'s message in `src/ui/viewport.rs` in place of the image when `open_path` fails, keeping the previous study closed. Done when: `tests/open_paths.rs` opens a text file and asserts the viewport state is the refusal with the `NotDicom` message. Cheaper substitute: a message box that blocks the window must fail; the refusal lives in the viewport.
 - [ ] Show the file name and a progress line in `src/ui/viewport.rs` while a load is in flight, and cancel that load when another path is opened. Done when: a test that opens a second path during a slow phantom load ends with the second image and no result from the first.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `empty`, `refusal`, `loading` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `viewer: open by argument, drop and dialog`
 
 **Test checkpoint:** `cargo test --test open_paths` passes; routing the drop handler around `open_path` fails the dropped-file test.
 
-## 4. Start time measured against the one second target
+## 4. Start time against the one second target
 
 "Fast-opening" is the product, so it gets a number and a measurement instead of an impression. The target in the foundation plan is under 1 second from process start to the first image drawn, for a typical X-ray on an SSD.
 
@@ -153,7 +157,7 @@ An MRI study is several series of slices. The strip is how a user finds the seri
 **Phase:** 2
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so behaviour is specified here and the look is the `egui` default
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** see every series in the study, pick one, and scroll through its slices
 **Treatment:** a vertical strip on the left, one card per series with a thumbnail of its middle slice, the series description, the modality and the image count; the open series is outlined
 **Chrome:** the strip is resizable and collapses with Tab; a slice slider runs down the right edge of the viewport for series with more than one image
@@ -171,6 +175,7 @@ An MRI study is several series of slices. The strip is how a user finds the seri
 - [ ] Keep the window/level, zoom and pan when the slice changes, and reset them when the series changes, in `src/ui/view_state.rs`. Done when: unit tests assert both.
 - [ ] Add the slice slider in `src/ui/viewport.rs`, hidden for single-image series, and on single images make the plain wheel zoom. Done when: a test asserts the slider is absent for an X-ray and present for the phantom series.
 - [ ] Show the per-slice `LoadError` message in place of a slice that failed to decode, with scrolling still working past it, in `src/ui/viewport.rs`. Done when: a series with one truncated file scrolls across it and shows the message on that slice only.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `stack`, `loading` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `viewer: series strip and stack scrolling`
 
 **Test checkpoint:** `cargo test series_strip` and `cargo test --test stack_scroll` pass; decoding on the interface thread fails the 50 ms frame assertion.
@@ -182,7 +187,7 @@ A viewer that shows an image without saying whose it is, or which side is left, 
 **Phase:** 2
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so the corner layout follows the common DICOM viewer convention
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** know whose image this is, when it was taken, which slice is showing and which way is left
 **Treatment:** small light text with a dark outline in the four corners of the viewport, and single letters (L, R, A, P, H, F) centred on the four edges
 **Chrome:** an overlay toggle in the toolbar (key O) cycling full, minimal and off
@@ -197,6 +202,7 @@ A viewer that shows an image without saying whose it is, or which side is left, 
 - [ ] Draw the overlay in `src/ui/viewport.rs` so it stays fixed while the image zooms and pans. Done when: a test asserts the text positions are unchanged after a zoom.
 - [ ] Add the overlay toggle to `src/ui/toolbar.rs` and the O key, cycling full, minimal (letters, slice number) and off. Done when: a test presses O three times and sees the three states in order.
 - [ ] Show a "Lossy compressed" note in the overlay when `LossyImageCompression` (0028,2110) is `01`. Done when: a lossy JPEG corpus file shows the note and a lossless file does not.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `stack`, `xray` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `viewer: information overlay and orientation markers`
 
 **Test checkpoint:** `cargo test overlay` passes; swapping the row and column direction in `edge_letters` fails the flipped-axial test.

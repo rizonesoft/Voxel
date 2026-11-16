@@ -37,7 +37,7 @@ track: M1
 | Order | Section | Deliverable | Depends On | Status |
 | ----- | ------- | ----------- | ---------- | ------ |
 | 1 | §1 | One DICOM file read into an image model | D00 T01 §4 | [ ] |
-| 2 | §2 | Named refusals for unreadable and unsupported files | §1 | [ ] |
+| 2 | §2 | Named refusals for bad files | §1 | [ ] |
 | 3 | §3 | Folder and DICOMDIR scan into studies and series | §1, D00 T01 §6 | [ ] |
 | 4 | §4 | Background series loading with the first slice first | §3 | [ ] |
 | 5 | §5 | Multi-frame files opened as series | §3 | [ ] |
@@ -65,7 +65,7 @@ Everything Voxel shows starts as one image: a grid of stored values and the few 
 
 **Test checkpoint:** `cargo test --test load_image` passes; changing `load_image` to scale pixels to 8-bit fails the stored-value assertion.
 
-## 2. Named refusals for unreadable and unsupported files
+## 2. Named refusals for bad files
 
 Patients open whatever is on the disc they were given: text files, shortcuts, images with formats Voxel cannot decode. Each case gets an error type the interface can turn into one plain sentence (D02 T01 §3), and none of them may crash the app.
 

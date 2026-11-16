@@ -16,8 +16,10 @@ track: M5
 ## Inputs
 
 - `docs/plans/2026-11-17-voxel-tech-stack.md`: "Decisions the owner made" (one app with a plain mode and a clinician mode) and "Out of scope for version 1" (no reporting, no PACS).
+- `design/SPEC.md`, `design/contract/` and `design/screens/`: the approved interface. Every control named in this file is registered once in `src/ui/controls.rs` and every panel once in `src/ui/panels.rs` (D02 T02 §2), and is drawn by whichever of the three interfaces is active. Where a section says toolbar, read the interface's tool area: the toolbar in Workstation, the dock in Lightbox, the rail or an inspector panel in Console. Placement, size and look are fixed by the contract, not by this file.
 - `src/ui/toolbar.rs`, `src/ui/viewport.rs`, `src/ui/view_state.rs` and `src/ui/overlay.rs` from D02 T01 §2, §5 and §6.
 - `src/settings.rs` from D02 T01 §7, which §1 and §5 extend.
+- -> XREF: D02 T02 §2 -- the control registry the mode table of §1 is part of
 - `src/dicom/image.rs` (`pixel_spacing_mm`, `spacing_source`) from D01 T01 §1, which decides what a measurement may claim.
 - `src/ui/mpr.rs` from D03 T01 §3 and `src/ui/view3d.rs` from D04 T01 §1.
 
@@ -53,7 +55,7 @@ A patient opening their own scan needs four things: see the image, scroll, chang
 **Phase:** 5
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so behaviour is specified here
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** have a viewer as simple or as capable as the person using it needs
 **Treatment:** plain mode shows the image, the series strip and a short toolbar (Open, Fit, Reset, Brightness presets); clinician mode adds MPR, 3D, measurement tools, layouts, the tag browser, Export and the full overlay
 **Chrome:** a mode switch at the right end of the toolbar labelled "More tools" (off is plain mode); a first-run hint points at it once
@@ -70,6 +72,7 @@ A patient opening their own scan needs four things: see the image, scroll, chang
 - [ ] Keep the keyboard shortcuts of clinician tools inactive in Plain mode in `src/ui/mode.rs`. Done when: a test presses M in Plain mode and the layout does not change.
 - [ ] Switch a view that Plain mode does not show (MPR, 3D, a multi-viewport layout) back to the single stack view when the mode changes to Plain, in `src/ui/mode.rs`. Done when: a test turns the switch off while in MPR and lands in the stack view.
 - [ ] Show the first-run hint once in `src/ui/mode.rs`, recorded in `Settings` as `hint_seen`. Done when: a test sees the hint on a first start and not on the second.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `empty`, `xray`, `stack` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `ui: plain mode and clinician mode`
 
 **Test checkpoint:** `cargo test mode` passes; adding a toolbar control without a row in the mode table fails the table test.
@@ -81,7 +84,7 @@ The most used clinical tool, and the one most able to mislead. A length is only 
 **Phase:** 5
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so behaviour is specified here
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** measure the distance between two points on the image
 **Treatment:** a thin line with small end handles and a label beside its midpoint: "42.3 mm", "42.3 mm at detector" or "311 px"
 **Chrome:** a Length tool button in the clinician toolbar (key L); the cursor becomes a crosshair while the tool is active; Esc returns to the default pointer
@@ -97,6 +100,7 @@ The most used clinical tool, and the one most able to mislead. A length is only 
 - [ ] Draw each measurement in `src/ui/viewport.rs` only on the slice it was made on, with a line width and label size that stay constant on screen at any zoom. Done when: a test asserts the measurement is absent one slice away and its on-screen width is unchanged after zooming.
 - [ ] Measure in MPR views in `src/ui/mpr.rs` using the plane's patient coordinates. Done when: a test measures the anisotropic sphere's diameter in the coronal plane and reads the true value.
 - [ ] Add the Length button to the mode table in `src/ui/mode.rs` (Clinician only) with key L, and keep the tool unavailable in the 3D view, where a distance on screen is not a distance in the patient. Done when: a test asserts the button is disabled with the tooltip "Not available in 3D" while the 3D view is open.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `stack` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `tools: length measurement`
 
 **Test checkpoint:** `cargo test measure` and `cargo test --test measure` pass; treating missing spacing as 1 mm fails the "px" label test.
@@ -108,7 +112,7 @@ The second standard tool: the angle between two lines meeting at a point, used f
 **Phase:** 5
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so behaviour is specified here
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** measure the angle between two structures
 **Treatment:** two thin lines from a shared vertex with a small arc and a label in degrees to one decimal place
 **Chrome:** an Angle tool button beside Length in the clinician toolbar (key A)
@@ -122,6 +126,7 @@ The second standard tool: the angle between two lines meeting at a point, used f
 - [ ] Add the Angle tool to `src/ui/viewport.rs`: three clicks place end, vertex, end, with a live preview after the first; Esc cancels. Done when: `tests/measure.rs` places three points on the `three_rods()` phantom and reads 90.0 between two rods.
 - [ ] Draw the arc and label in `src/ui/viewport.rs`, placing the label outside the arc so it never covers the vertex. Done when: a test asserts the label's rectangle does not contain the vertex for acute and obtuse angles.
 - [ ] Add the Angle button to the mode table in `src/ui/mode.rs` (Clinician only) with key A, unavailable in 3D like Length. Done when: a test asserts the button states in 2D, MPR and 3D.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `stack` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `tools: angle measurement`
 
 **Test checkpoint:** `cargo test measure` and `cargo test --test measure` pass; computing the angle in pixel units on the 1 by 2 mm image fails the right-angle test.
@@ -133,7 +138,7 @@ Every create needs its reverse. A misplaced measurement must be movable and remo
 **Phase:** 5
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so behaviour is specified here
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** fix or remove a measurement, and take back the last change
 **Treatment:** a selected measurement is drawn brighter with larger handles
 **Chrome:** Delete removes the selection; a Clear Measurements button in the clinician toolbar; Ctrl+Z and Ctrl+Y undo and redo
@@ -148,6 +153,7 @@ Every create needs its reverse. A misplaced measurement must be movable and remo
 - [ ] Add an undo stack to `MeasurementSet` covering create, move, delete and clear, with redo, capped at 100 steps. Done when: unit tests assert each operation is undone and redone exactly, and that a new action clears the redo stack.
 - [ ] Bind Delete, Ctrl+Z and Ctrl+Y in `src/ui/viewport.rs` and add Clear Measurements to the mode table in `src/ui/mode.rs`, disabled when the series has none. Done when: `tests/measure.rs` creates two measurements, clears, undoes, and finds both back. Cheaper substitute: a clear that cannot be undone must fail this test.
 - [ ] Keep measurements when the user changes slice, series or layout and comes back, and drop them when the study is closed, in `src/ui/measure.rs`. Done when: a test leaves a series, returns and finds its measurements, then opens another study and finds none.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `stack` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `tools: measurement select, delete, clear and undo`
 
 **Test checkpoint:** `cargo test measure` and `cargo test --test measure` pass; removing clear from the undo stack fails the clear-and-undo test.
@@ -159,7 +165,7 @@ Clinicians compare: two sequences of the same anatomy side by side, scrolling to
 **Phase:** 5
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so behaviour is specified here
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** look at two or four series at once and scroll them together
 **Treatment:** the viewport area splits into equal panes with a thin divider; the active pane has a coloured border; each pane has its own overlay
 **Chrome:** a Layout drop-down in the clinician toolbar (1, 1 by 2, 2 by 1, 2 by 2) and a Link Scrolling toggle (key K); a series card dropped on a pane opens there
@@ -175,6 +181,7 @@ Clinicians compare: two sequences of the same anatomy side by side, scrolling to
 - [ ] Add the Link Scrolling toggle to the mode table in `src/ui/mode.rs` with key K, and a small link mark in each linked pane's overlay in `src/ui/overlay.rs`; a pane whose series is not parallel shows the mark struck through. Done when: a test asserts the marks for a parallel and a perpendicular pair.
 - [ ] Add `layout` and `link_scrolling` to `Settings` in `src/settings.rs`, with the Layout drop-down as the control. Done when: a test sets 1 by 2, loads a fresh `Settings` and reads 1 by 2.
 - [ ] Keep each pane's series when the layout grows, and keep the active pane's series when it shrinks, in `src/ui/layout.rs`. Done when: a test going 2 by 2 to 1 keeps the active pane's series on screen.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `layout` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `tools: viewport layouts with linked scrolling`
 
 **Test checkpoint:** `cargo test layout` and `cargo test link` pass; linking panes by slice index fails the 20 and 40 slice test.
@@ -186,7 +193,7 @@ When an image looks wrong, or a clinician needs an acquisition parameter, the an
 **Phase:** 5
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so behaviour is specified here
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** find a piece of information stored in the image file, such as the echo time or the slice thickness
 **Treatment:** a side panel on the right with a search box and a table of tag number, name, type and value; sequences expand as nested rows
 **Chrome:** a Tags button in the clinician toolbar (key T) toggling the panel; a copy-value action on each row
@@ -202,6 +209,7 @@ When an image looks wrong, or a clinician needs an acquisition parameter, the an
 - [ ] Reload the rows in `TagPanel` when the slice or the active pane changes, off the interface thread. Done when: a test scrolls one slice and the `InstanceNumber` row changes.
 - [ ] Add the copy-value action to each row in `src/ui/tag_panel.rs` and the Tags button to the mode table in `src/ui/mode.rs` with key T. Done when: a test copies a row and reads its full value from the clipboard, not the shortened one.
 - [ ] Show "No file open" in `TagPanel` when nothing is open, and the `LoadError` message when the file cannot be read. Done when: a test asserts both states.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `tags` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `tools: DICOM tag browser with search`
 
 **Test checkpoint:** `cargo test --test tags` and `cargo test tag_panel` pass; searching names only fails the value-search test.
@@ -213,7 +221,7 @@ Users want to keep or send a picture: a patient to show a relative, a clinician 
 **Phase:** 5
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so behaviour is specified here
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** save the current view as a picture
 **Treatment:** the exported PNG shows the active pane as displayed, with its window, zoom, measurements and orientation letters
 **Chrome:** an Export button in the clinician toolbar (Ctrl+E) opening a native Save dialog, with a checkbox "Include patient details", off by default
@@ -229,6 +237,7 @@ Users want to keep or send a picture: a patient to show a relative, a clinician 
 - [ ] Write the file to a temporary name beside the target and rename it in `src/export.rs`, returning a named error when the folder is read-only or the disk is full. Done when: a test exporting into a read-only folder gets the error and finds no partial file.
 - [ ] Add the Export button to the mode table in `src/ui/mode.rs` with Ctrl+E, the native Save dialog through `rfd` suggesting a name without the patient name (`voxel-<modality>-<date exported>.png`), and a short confirmation line naming the saved file. Done when: a test exports and reads the confirmation with the path. Cheaper substitute: a suggested file name containing the patient name must fail a test on the suggestion.
 - [ ] Show the export error as one plain sentence in the toolbar's status line in `src/ui/toolbar.rs`. Done when: a test with the read-only folder sees the sentence.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `export` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `tools: export the current view as a PNG`
 
 **Test checkpoint:** `cargo test --test export` passes; drawing the patient name with the option off fails the corner-pixel test.

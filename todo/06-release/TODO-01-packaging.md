@@ -16,10 +16,12 @@ track: M6
 ## Inputs
 
 - `docs/plans/2026-11-17-voxel-tech-stack.md`: "The stack" (packaging), "Targets" (exe under 30 MB), "Risks" (diagnostic use is regulated) and "Out of scope for version 1" (code signing).
+- `design/SPEC.md`, `design/contract/` and `design/screens/`: the approved interface. Every control named in this file is registered once in `src/ui/controls.rs` and every panel once in `src/ui/panels.rs` (D02 T02 §2), and is drawn by whichever of the three interfaces is active. Where a section says toolbar, read the interface's tool area: the toolbar in Workstation, the dock in Lightbox, the rail or an inspector panel in Console. Placement, size and look are fixed by the contract, not by this file.
 - `docs/dependencies.md` from D00 T01 §2: the size baseline and the dependency list §4 builds the licence notices from.
 - `src/main.rs` (the command-line argument path) from D02 T01 §3, which the file association in §3 calls.
 - `src/ui/mode.rs` from D05 T01 §1, where §4 places the About entry.
 - `todo/plan.json`: the acceptance bar §5 checks.
+- -> XREF: D02 T02 §7 -- the Interface setting the installer of §6 writes before the first start
 
 ## Outcome
 
@@ -27,6 +29,7 @@ track: M6
 - `scripts/build-release.ps1` produces `dist/Voxel.exe` with an icon and version details, and fails when the exe is over 30 MB.
 - `Voxel.exe --register` and `--unregister` add and remove a per-user "Open with Voxel" association for DICOM files, with no administrator rights.
 - An About window shows the version, the label and the licences of everything Voxel is built from.
+- `dist/VoxelSetup.exe` installs Voxel for the current user, asks which of the three interfaces to use, and uninstalls cleanly.
 - The owner has run the acceptance pass on real studies and its result is recorded.
 
 **Adjacency:** list=not-applicable (packaging creates no records to find); document=applicable; settings=applicable; reporting=not-applicable (no summaries in version 1); notifications=not-applicable (a local viewer notifies nobody); permissions=applicable; audit=not-applicable (no user data is changed); exchange=not-applicable (import is D01 T01, export is D05 T01 §7); reverse=applicable
@@ -41,7 +44,8 @@ track: M6
 | 2 | §2 | Portable release build with a size gate | D05 T01 §5, D05 T01 §6, D05 T01 §7 | [ ] |
 | 3 | §3 | Per-user file association and its removal | §2 | [ ] |
 | 4 | §4 | About window with version, label and licences | §1, §2 | [ ] |
-| 5 | §5 | Acceptance pass on the owner's real studies | §3, §4 | [ ] |
+| 5 | §5 | Acceptance pass on the owner's real studies | §3, §4, §6, D02 T02 §10 | [ ] |
+| 6 | §6 | Installer with the interface choice | §2, §3, D02 T02 §7 | [ ] |
 
 ## 1. Diagnostic-use label decision
 
@@ -95,7 +99,7 @@ Double-clicking a file is the whole product. A portable app has no installer to 
 **Phase:** 6
 **Needs:** windows-host
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so behaviour is specified here
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** make DICOM files open in Voxel from Explorer, and undo that
 **Treatment:** a short confirmation sentence after each action, for example "DICOM files can now be opened with Voxel"
 **Chrome:** two entries in the app's corner menu, "Open DICOM files with Voxel" and "Remove file association", shown in both modes; the same actions as `--register` and `--unregister` on the command line
@@ -111,6 +115,7 @@ Double-clicking a file is the whole product. A portable app has no installer to 
 - [ ] Add the two menu entries in `src/ui/mode.rs` (both modes) calling the same functions, showing "Remove file association" only while registered. Done when: a test asserts the entries' visibility before and after registering.
 - [ ] Detect in `src/assoc.rs` that the registered path no longer matches the running exe (the exe was moved) and offer to update it with a line in the empty-state view. Done when: a test with a stale path sees the offer, and accepting it rewrites the command.
 - [ ] Open a file whose name has no extension, as on patient discs, when it is passed by argument: the association cannot cover these, so `src/app.rs` relies on content detection (D01 T01 §2), and the Open Folder action covers the disc. Done when: `tests/open_paths.rs` opens an extensionless corpus copy by argument.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `menu`, `settings` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `release: per-user file association and its removal`
 
 **Test checkpoint:** `cargo test --test assoc` passes; making `unregister()` delete the whole `.dcm` key fails the pre-existing-value test.
@@ -122,7 +127,7 @@ The place a user or an auditor looks to learn what this program is. It carries t
 **Phase:** 6
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional; no design SPEC exists, so behaviour is specified here
+**Fidelity:** 1:1 with `design/SPEC.md` and the contract files in `design/contract/`, in all three interfaces
 **Job:** find out which version this is, what it may be used for, and what it is built from
 **Treatment:** a small window with the icon, "Voxel", the version, the label sentence, and a scrolling list of components with their licences
 **Chrome:** an About entry in the corner menu (both modes); the label sentence also sits at the left of the status bar at all times; Esc closes the window
@@ -137,6 +142,7 @@ The place a user or an auditor looks to learn what this program is. It carries t
 - [ ] Write the About window in `src/ui/about.rs` showing the icon, name, `CARGO_PKG_VERSION`, `LABEL`, the GPU adapter in use and the embedded licence text. Done when: a test opens it and finds the version string and `LABEL`.
 - [ ] Draw `LABEL` at the left of the status bar in `src/ui/toolbar.rs` in both modes. Done when: a test asserts the status bar text in Plain and Clinician modes.
 - [ ] Add the About entry to the mode table in `src/ui/mode.rs` (both modes) with Esc closing the window. Done when: a test opens and closes it.
+- [ ] Run `cargo test --test ui_contract -- --nocapture` and read the report for the screens `about` in `workstation`, `lightbox` and `console`. Done when: no control or text this section adds is reported missing, extra or misplaced in any of the three (`design/SPEC.md`, "What 1:1 means"). Cheaper substitute: editing a file under `design/contract/` or `design/screens/` to quiet the report must fail review.
 - [ ] Commit: `release: About window with version, label and licences`
 
 **Test checkpoint:** `cargo test label` and `cargo test about` pass; changing the sentence in `docs/decisions/2026-label.md` without changing `LABEL` fails `cargo test label`.
@@ -154,7 +160,7 @@ Phantoms and public test files prove correctness; they do not prove that the stu
 1. Write the checklist the owner follows in `docs/acceptance.md`. Done when: it has one line per item of the acceptance bar in `todo/plan.json`.
 2. The owner runs it on real studies and each result is recorded. Done when: every line has a result and a date.
 
-- [ ] Write `docs/acceptance.md` with one checkable line each for: double-click an X-ray file; window/level, zoom, pan, invert, reset; open an MRI folder and a disc with a `DICOMDIR`; scroll each series; MPR with crosshairs and an oblique plane; 3D in MIP and shaded modes; length and angle on an MRI and an X-ray; a 1 by 2 layout with linked scrolling; the tag browser; a PNG export; plain mode; register and unregister. Done when: the file exists and names no patient.
+- [ ] Write `docs/acceptance.md` with one checkable line each for: double-click an X-ray file; window/level, zoom, pan, invert, reset; open an MRI folder and a disc with a `DICOMDIR`; scroll each series; MPR with crosshairs and an oblique plane; 3D in MIP and shaded modes; length and angle on an MRI and an X-ray; a 1 by 2 layout with linked scrolling; the tag browser; a PNG export; plain mode; register and unregister; each of the three interfaces, switched in Settings with a study open; an install with `dist/VoxelSetup.exe` choosing a non-default interface, and its uninstall. Done when: the file exists and names no patient.
 - [ ] Run `dist/Voxel.exe` with the owner on at least one real X-ray study and one real multi-series MRI study, ticking each line or recording what went wrong. Done when: every line carries a result and the date, with no patient name, ID or image added to the repository. Cheaper substitute: running the checklist on corpus or phantom files must fail; the bar says real studies.
 - [ ] Record the start time `scripts/measure-start.ps1` reports for the real X-ray file in `docs/acceptance.md`. Done when: the value is in the file and under 1000 ms, or the shortfall is filed through `add-todo`.
 - [ ] File each failed line as a new section through the `add-todo` skill, naming the series type and transfer syntax without patient details, and add any unsupported format to `docs/codec-coverage.md`. Done when: every failed line names the section that owns its fix, or no line failed.
@@ -162,9 +168,39 @@ Phantoms and public test files prove correctness; they do not prove that the stu
 
 **Test checkpoint:** `python scripts/todo-graph.py validate` exits 0 and `Select-String -Path docs/acceptance.md -Pattern '\[ \]'` finds no unticked line without a named owning section; an unticked line with no owner is found by that command.
 
+## 6. Installer with the interface choice
+
+The owner decided on 2026-11-17 that the interface is chosen when Voxel is installed. The portable exe stays, for discs and locked-down PCs, and an installer is added beside it: per-user, with no administrator prompt, whose one custom page asks the question the first-run chooser asks a portable copy (D02 T02 §9).
+
+**Phase:** 6
+**Needs:** windows-host
+**Surface:** yes
+**Fidelity:** the wizard is Inno Setup's standard look; the page's title, the three names and their one-line descriptions are word for word those of the `welcome` screen in `design/SPEC.md`
+**Job:** install Voxel and pick how it looks, in one pass
+**Treatment:** a standard wizard page titled "Choose how Voxel looks" with three radio buttons (Workstation, selected and marked "Recommended"; Lightbox; Console), each with its description, and the sentence "You can change this later in Settings."
+**Chrome:** the wizard's own Back, Next and Cancel; a checkbox "Open DICOM files with Voxel", ticked, on the tasks page
+
+**Build order:**
+
+1. Write `installer/voxel.iss` and build it from `scripts/build-release.ps1`. Done when: `dist/VoxelSetup.exe` exists.
+2. Prove install, first start and uninstall end to end. Done when: the round-trip test leaves the account as it found it.
+
+- [ ] Install Inno Setup 6 with `winget install JRSoftware.InnoSetup` and record its version in `docs/dependencies.md` as a build tool. Done when: `iscc /?` prints its version.
+- [ ] Write `installer/voxel.iss`: `PrivilegesRequired=lowest`, the default folder `{localappdata}\Programs\Voxel`, the exe from `dist/Voxel.exe`, the icon `assets/brand/voxel.ico`, the version read from the exe, a Start menu shortcut, and the label sentence from `docs/decisions/2026-label.md` on the welcome page. Done when: `iscc installer/voxel.iss` writes `dist/VoxelSetup.exe` and running it shows no administrator prompt. Cheaper substitute: an installer that asks for elevation must fail; a clinic PC's user often has none.
+- [ ] Add the custom page "Choose how Voxel looks" in the `[Code]` section of `installer/voxel.iss` with the three radio buttons and descriptions, Workstation selected. Done when: the page shows between the folder page and the tasks page, and its texts equal the `welcome` screen's in `design/contract/workstation/welcome.json` (a test compares the strings).
+- [ ] Write the choice after the files are copied by running `Voxel.exe --set-interface <name>`, a flag added in `src/main.rs` that writes only the `interface` field through `Settings::save` and exits 0. Done when: a test runs the flag with a temporary settings folder and reads the field back, and an existing settings file keeps its other fields. Cheaper substitute: the installer writing `settings.toml` itself must fail; the settings file has one writer.
+- [ ] Run `Voxel.exe --register` from the installer when the "Open DICOM files with Voxel" task is ticked, and `Voxel.exe --unregister` from the uninstaller always. Done when: after install with the task ticked `tests/assoc.rs`'s check finds the ProgID, and after uninstall it does not.
+- [ ] Ask in the uninstaller whether to remove the settings too, default No, and remove `%APPDATA%\Voxel` only on Yes. Done when: both answers are exercised and leave the expected state.
+- [ ] Build the installer in `scripts/build-release.ps1` after the exe, and fail the script when `iscc` is missing or the installer is over 40 MB. Done when: the script writes both files and prints both sizes.
+- [ ] Write `scripts/test-installer.ps1`: install silently into a temporary folder with `/VERYSILENT /DIR=<temp> /INTERFACE=lightbox` (a command-line parameter the script reads), start the installed exe with `--exit-after-first-image` on a phantom file, uninstall silently, and compare the registry export and the folder listing before and after. Every process it starts is stopped with its tree on a 120 second timeout. Done when: the script exits 0, the app started in Lightbox with no chooser, and nothing is left behind but the settings file.
+- [ ] Commit: `release: installer with the interface choice`
+
+**Test checkpoint:** `pwsh scripts/build-release.ps1` writes `dist/Voxel.exe` and `dist/VoxelSetup.exe`, and `pwsh scripts/test-installer.ps1` exits 0; removing the `--unregister` call from the uninstaller makes it exit 1 with the leftover ProgID named.
+
 ## Verification
 
 - `dist/Voxel.exe`, copied alone to another folder, starts, opens a file by double-click after `--register`, and shows the decided label in the status bar and the About window.
 - `--unregister` leaves the user's registry as it was before `--register`.
 - The exe is under 30 MB and `docs/acceptance.md` records the owner's pass on real studies.
+- `dist/VoxelSetup.exe` installs without an administrator prompt, starts in the chosen interface with no chooser, and uninstalls leaving nothing but the settings file.
 - `python scripts/todo-graph.py validate` and `python scripts/todo-graph.py plan --check` pass.

@@ -21,76 +21,87 @@ Sections: 6 | Checklist items: 40
 
 ### Phase 1: First image: 2D X-ray viewing
 
-Sections: 6 | Checklist items: 43
+Sections: 12 | Checklist items: 91
 
-| Status | Reference  | Deliverable                                          | Needs                         | Items |
-| ------ | ---------- | ---------------------------------------------------- | ----------------------------- | ----- |
-| [ ]    | D01 T01 §1 | One DICOM file read into an image model              | none                          | 7     |
-| [ ]    | D01 T01 §2 | Named refusals for unreadable and unsupported files  | none                          | 7     |
-| [ ]    | D02 T01 §1 | 16-bit image texture and the window/level shader     | windows-host                  | 8     |
-| [ ]    | D02 T01 §2 | Zoom, pan, invert, fit and reset                     | windows-host, display-session | 8     |
-| [ ]    | D02 T01 §3 | Open by argument, drag and drop, and the Open dialog | windows-host, display-session | 7     |
-| [ ]    | D02 T01 §4 | Start time measured against the one second target    | windows-host, display-session | 6     |
+| Status | Reference  | Deliverable                                  | Needs                         | Items |
+| ------ | ---------- | -------------------------------------------- | ----------------------------- | ----- |
+| [ ]    | D01 T01 §1 | One DICOM file read into an image model      | none                          | 7     |
+| [ ]    | D01 T01 §2 | Named refusals for bad files                 | none                          | 7     |
+| [ ]    | D02 T01 §1 | 16-bit image texture and window/level shader | windows-host                  | 8     |
+| [ ]    | D02 T02 §1 | Theme, embedded fonts and icon set           | windows-host                  | 6     |
+| [ ]    | D02 T02 §2 | Control and panel registry                   | windows-host                  | 7     |
+| [ ]    | D02 T02 §3 | Workstation interface shell                  | windows-host, display-session | 8     |
+| [ ]    | D02 T02 §4 | Contract mode and the contract test          | windows-host, display-session | 9     |
+| [ ]    | D02 T02 §5 | Lightbox interface shell                     | windows-host, display-session | 8     |
+| [ ]    | D02 T02 §6 | Console interface shell and inspector        | windows-host, display-session | 8     |
+| [ ]    | D02 T01 §2 | Zoom, pan, invert, fit and reset             | windows-host, display-session | 9     |
+| [ ]    | D02 T01 §3 | Open by argument, drop and dialog            | windows-host, display-session | 8     |
+| [ ]    | D02 T01 §4 | Start time against the one second target     | windows-host, display-session | 6     |
 
 ### Phase 2: MRI series and stack scrolling
 
-Sections: 6 | Checklist items: 41
+Sections: 7 | Checklist items: 48
 
 | Status | Reference  | Deliverable                                          | Needs                         | Items |
 | ------ | ---------- | ---------------------------------------------------- | ----------------------------- | ----- |
 | [ ]    | D01 T01 §3 | Folder and DICOMDIR scan into studies and series     | none                          | 8     |
 | [ ]    | D01 T01 §4 | Background series loading with the first slice first | none                          | 6     |
 | [ ]    | D01 T01 §5 | Multi-frame files opened as series                   | none                          | 5     |
-| [ ]    | D02 T01 §5 | Series strip and stack scrolling                     | windows-host, display-session | 9     |
-| [ ]    | D02 T01 §6 | Image information overlay and orientation markers    | windows-host, display-session | 6     |
+| [ ]    | D02 T01 §5 | Series strip and stack scrolling                     | windows-host, display-session | 10    |
+| [ ]    | D02 T01 §6 | Image information overlay and orientation markers    | windows-host, display-session | 7     |
 | [ ]    | D02 T01 §7 | Settings file for window size and last folder        | windows-host                  | 7     |
+| [ ]    | D02 T02 §7 | Interface setting with switching at once             | windows-host, display-session | 5     |
 
 ### Phase 3: Volume building and MPR
 
-Sections: 5 | Checklist items: 34
+Sections: 5 | Checklist items: 37
 
 | Status | Reference  | Deliverable                                         | Needs                         | Items |
 | ------ | ---------- | --------------------------------------------------- | ----------------------------- | ----- |
 | [ ]    | D03 T01 §1 | Slice geometry check and the volume refusal reasons | none                          | 7     |
 | [ ]    | D03 T01 §2 | Volume packed into a 16-bit 3D texture              | windows-host                  | 7     |
-| [ ]    | D03 T01 §3 | Three-plane MPR layout with linked crosshairs       | windows-host, display-session | 8     |
-| [ ]    | D03 T01 §4 | Oblique plane rotation and plane reset              | windows-host, display-session | 6     |
-| [ ]    | D03 T01 §5 | Volume refusal shown with the 2D stack kept         | windows-host, display-session | 6     |
+| [ ]    | D03 T01 §3 | Three-plane MPR layout with linked crosshairs       | windows-host, display-session | 9     |
+| [ ]    | D03 T01 §4 | Oblique plane rotation and plane reset              | windows-host, display-session | 7     |
+| [ ]    | D03 T01 §5 | Volume refusal shown with the 2D stack kept         | windows-host, display-session | 7     |
 
 ### Phase 4: 3D rendering
 
-Sections: 3 | Checklist items: 22
+Sections: 3 | Checklist items: 26
 
 | Status | Reference  | Deliverable                                       | Needs                         | Items |
 | ------ | ---------- | ------------------------------------------------- | ----------------------------- | ----- |
-| [ ]    | D04 T01 §1 | Orbit camera and maximum intensity projection     | windows-host, display-session | 9     |
-| [ ]    | D04 T01 §2 | Shaded volume rendering with presets              | windows-host, display-session | 7     |
-| [ ]    | D04 T01 §3 | 3D quality setting and lower quality while moving | windows-host, display-session | 6     |
+| [ ]    | D04 T01 §1 | Orbit camera and maximum intensity projection     | windows-host, display-session | 11    |
+| [ ]    | D04 T01 §2 | Shaded volume rendering with presets              | windows-host, display-session | 8     |
+| [ ]    | D04 T01 §3 | 3D quality setting and lower quality while moving | windows-host, display-session | 7     |
 
 ### Phase 5: Clinician tools and layouts
 
-Sections: 7 | Checklist items: 47
+Sections: 9 | Checklist items: 68
 
 | Status | Reference  | Deliverable                                   | Needs                         | Items |
 | ------ | ---------- | --------------------------------------------- | ----------------------------- | ----- |
-| [ ]    | D05 T01 §1 | Plain mode and clinician mode                 | windows-host, display-session | 8     |
-| [ ]    | D05 T01 §2 | Length measurement in millimetres             | windows-host, display-session | 7     |
-| [ ]    | D05 T01 §3 | Angle measurement                             | windows-host, display-session | 5     |
-| [ ]    | D05 T01 §4 | Measurement selection, delete, clear and undo | windows-host, display-session | 6     |
-| [ ]    | D05 T01 §5 | Viewport layouts with linked scrolling        | windows-host, display-session | 7     |
-| [ ]    | D05 T01 §6 | DICOM tag browser with search                 | windows-host, display-session | 7     |
-| [ ]    | D05 T01 §7 | Current view exported as a PNG                | windows-host, display-session | 7     |
+| [ ]    | D05 T01 §1 | Plain mode and clinician mode                 | windows-host, display-session | 9     |
+| [ ]    | D02 T02 §8 | Settings window                               | windows-host, display-session | 8     |
+| [ ]    | D02 T02 §9 | First-run interface chooser                   | windows-host, display-session | 6     |
+| [ ]    | D05 T01 §2 | Length measurement in millimetres             | windows-host, display-session | 8     |
+| [ ]    | D05 T01 §3 | Angle measurement                             | windows-host, display-session | 6     |
+| [ ]    | D05 T01 §4 | Measurement selection, delete, clear and undo | windows-host, display-session | 7     |
+| [ ]    | D05 T01 §5 | Viewport layouts with linked scrolling        | windows-host, display-session | 8     |
+| [ ]    | D05 T01 §6 | DICOM tag browser with search                 | windows-host, display-session | 8     |
+| [ ]    | D05 T01 §7 | Current view exported as a PNG                | windows-host, display-session | 8     |
 
 ### Phase 6: Packaging and release
 
-Sections: 4 | Checklist items: 26
+Sections: 6 | Checklist items: 43
 
-| Status | Reference  | Deliverable                                   | Needs                         | Items |
-| ------ | ---------- | --------------------------------------------- | ----------------------------- | ----- |
-| [ ]    | D06 T01 §1 | Diagnostic-use label decision                 | owner-decision                | 4     |
-| [ ]    | D06 T01 §2 | Portable release build with a size gate       | windows-host                  | 9     |
-| [ ]    | D06 T01 §3 | Per-user file association and its removal     | windows-host                  | 7     |
-| [ ]    | D06 T01 §4 | About window with version, label and licences | windows-host, display-session | 6     |
+| Status | Reference   | Deliverable                                   | Needs                         | Items |
+| ------ | ----------- | --------------------------------------------- | ----------------------------- | ----- |
+| [ ]    | D06 T01 §1  | Diagnostic-use label decision                 | owner-decision                | 4     |
+| [ ]    | D06 T01 §2  | Portable release build with a size gate       | windows-host                  | 9     |
+| [ ]    | D06 T01 §3  | Per-user file association and its removal     | windows-host                  | 8     |
+| [ ]    | D06 T01 §4  | About window with version, label and licences | windows-host, display-session | 7     |
+| [ ]    | D02 T02 §10 | Contract pass for all 45 screens              | windows-host, display-session | 6     |
+| [ ]    | D06 T01 §6  | Installer with the interface choice           | windows-host                  | 9     |
 
 ### Phase 99: Manual, operator only
 
@@ -100,6 +111,6 @@ Sections: 1 | Checklist items: 5
 | ------ | ---------- | ------------------------------------------- | -------- | ----- |
 | [ ]    | D06 T01 §5 | Acceptance pass on the owner's real studies | attended | 5     |
 
-Progress: 0/38 verified sections, 1 ready to run now.
+Progress: 0/49 verified sections, 1 ready to run now.
 
-Checklist: 0/258 items completed (includes Commit items).
+Checklist: 0/358 items completed (includes Commit items).

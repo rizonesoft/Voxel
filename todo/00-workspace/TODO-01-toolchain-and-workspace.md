@@ -95,7 +95,7 @@ This proves the shell of the stack end to end: `eframe` opens a window, `wgpu` p
 **Phase:** 0
 **Needs:** windows-host, display-session
 **Surface:** yes
-**Fidelity:** functional shell only; there is no design SPEC yet, so the look is the `egui` default dark theme
+**Fidelity:** a placeholder window only; D02 T02 §3 replaces it with the designed Workstation shell of `design/SPEC.md`
 **Job:** start the app and see an empty Voxel window that says how to open a study
 **Treatment:** a centred hint "Drop a DICOM file or folder here, or press Ctrl+O", nothing else
 **Chrome:** the Windows title bar reading "Voxel"; no menu or toolbar yet (D02 T01 §3 adds Open)
