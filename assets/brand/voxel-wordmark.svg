@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 544 120" role="img" aria-label="Voxel">
+  <g fill="none" stroke="#FFF3D6" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0 L42 100 L84 0"/>
+    <circle cx="168" cy="50" r="50"/>
+    <path d="M252 0 L332 100 M332 0 L252 100"/>
+    <path d="M366 0 H430 M366 100 H430"/>
+    <path d="M464 0 V100 H524"/>
+  </g>
+  <path d="M366 50 H420" fill="none" stroke="#FFB000" stroke-width="12" stroke-linecap="round"/>
+</svg>

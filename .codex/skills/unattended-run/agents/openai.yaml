@@ -1,0 +1,4 @@
+interface:
+  display_name: "Unattended run"
+  short_description: "Start, stop, watch or debug this project's unattended run, following docs/unattended-run.md."
+  default_prompt: "Show the unattended run's status from scripts/unattended-run.py and say what docs/unattended-run.md advises."

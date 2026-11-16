@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Voxel app icon, small sizes">
+  <defs>
+    <mask id="voxel-small-mid" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+      <rect width="256" height="256" fill="#fff"/>
+      <path d="M128 46 L200 82 L128 118 L56 82 Z" fill="#000" stroke="#000" stroke-width="36" stroke-linejoin="round"/>
+    </mask>
+    <mask id="voxel-small-low" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+      <rect width="256" height="256" fill="#fff"/>
+      <path d="M128 92 L200 128 L128 164 L56 128 Z" fill="#000" stroke="#000" stroke-width="36" stroke-linejoin="round"/>
+    </mask>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#231E16"/>
+  <g transform="translate(128 128) scale(1.14) translate(-128 -128)">
+    <path d="M128 138 L200 174 L128 210 L56 174 Z" fill="#7A5200" stroke="#7A5200" stroke-width="10" stroke-linejoin="round" mask="url(#voxel-small-low)"/>
+    <path d="M128 92 L200 128 L128 164 L56 128 Z" fill="#C48700" stroke="#C48700" stroke-width="10" stroke-linejoin="round" mask="url(#voxel-small-mid)"/>
+    <path d="M128 46 L200 82 L128 118 L56 82 Z" fill="#FFB000" stroke="#FFB000" stroke-width="10" stroke-linejoin="round"/>
+  </g>
+</svg>

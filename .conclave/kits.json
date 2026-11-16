@@ -64,6 +64,10 @@
       "kit": "todo",
       "sha256": "52c093678c57652d585f208f7c74d7518947a1a0863854d90e7e0106664c12a1"
     },
+    ".agents/skills/unattended-run/SKILL.md": {
+      "kit": "unattended",
+      "sha256": "2f367a98e25785b9f7cc98ee32f53b1201940d6647bbdf1f0524c1f3b9a5c54c"
+    },
     ".claude/agents/code-explorer.md": {
       "kit": "base",
       "sha256": "62a2c6f7802162fe03b87d47cf878fbfc6116bc17c8ee25967a150d6cf9a58f1"
@@ -147,6 +151,10 @@
     ".claude/skills/review-todo-section/SKILL.md": {
       "kit": "todo",
       "sha256": "69187f500c0275664083ae1b8658fa524e5c463699279220b3d21b2ddd06deac"
+    },
+    ".claude/skills/unattended-run/SKILL.md": {
+      "kit": "unattended",
+      "sha256": "ba77ec74b61be4fb66bde78462a70f4c2dca3d43cdcbf1427c905b6170076846"
     },
     ".codex/hooks.json": {
       "kit": "todo",
@@ -256,6 +264,14 @@
       "kit": "todo",
       "sha256": "116f9fb393b30931ec41fe9f51d289b18257f8435467083ab2df039f6e682dde"
     },
+    ".codex/skills/unattended-run/SKILL.md": {
+      "kit": "unattended",
+      "sha256": "73ab237063ae3bba76587559e09c07228f5abe279508881193704c7d0342a7cc"
+    },
+    ".codex/skills/unattended-run/agents/openai.yaml": {
+      "kit": "unattended",
+      "sha256": "7e4bd59fe61987e971a62858f54781420e0e33080279418ea736c0df0c300f7b"
+    },
     ".conclave/.gitignore": {
       "kit": "base",
       "sha256": "4ba605f63bc9cf3695e61c19f7cfa1b36a70b49c2084900f988bedc031103991"
@@ -267,6 +283,10 @@
     ".conclave/reviewers.toml": {
       "kit": "reviewer",
       "sha256": "0e5517a925991ffe7a9b11f56a9484319b912b2d126b79ece79b4d3184a2825f"
+    },
+    ".conclave/unattended.json": {
+      "kit": "unattended",
+      "sha256": "9f9a26216d886ea6173803574dad57f53fcb4d8045b87d9ae96c6181f021064d"
     },
     "AGENTS.md": {
       "kit": "base",
@@ -308,6 +328,18 @@
       "kit": "todo",
       "sha256": "12362c604bc04a17f6a14566ed8aa57148671eb758db8ebd177d0514aa3258da"
     },
+    "docs/unattended-prompt.md": {
+      "kit": "unattended",
+      "sha256": "c26bba11e2b5e3acfb79ce36cd2ac93d3801fdcf1b4a0afe5062b53968fc32f1"
+    },
+    "docs/unattended-run.md": {
+      "kit": "unattended",
+      "sha256": "84e9e9a95303867e080e9b9cebc924af3da92b3898b4a69967b24c6c67bbbbae"
+    },
+    "scripts/campaign-icon.py": {
+      "kit": "unattended",
+      "sha256": "c69424284585adead0cd8ca6bf4af2a1c345de6de69bc628d1cb8908b1304947"
+    },
     "scripts/campaign_guard.py": {
       "kit": "todo",
       "sha256": "ed4754a9a9ea89322756bcb05a6f12a4367449689fab9ffa1625ca71767493b4"
@@ -332,6 +364,10 @@
       "kit": "todo",
       "sha256": "d41ce27e5c4f9e395bf761c336440204b50bf407e7e291c16235c3fa76a9289c"
     },
+    "scripts/lib/unattended.py": {
+      "kit": "unattended",
+      "sha256": "519968e628509dc6408ca342791875d35f1eebd3955a9040f25f43a8f05b6f39"
+    },
     "scripts/merge_prs.py": {
       "kit": "todo",
       "sha256": "31de9bb05a59d3803084786c69332de28d70fe98fc9aec239ccc1153a6d60559"
@@ -352,6 +388,18 @@
       "kit": "reviewer",
       "sha256": "844b97dd86710e96ade5ac3e5c3fdb22fbeeb1fdc08abe4c352271f13a4e6b03"
     },
+    "scripts/tests/test_campaign_icon.py": {
+      "kit": "unattended",
+      "sha256": "96f8c94942e235e919d8db917e932b6144b9a2bcff5ba314f7c1abac72555eda"
+    },
+    "scripts/tests/test_document.py": {
+      "kit": "unattended",
+      "sha256": "890738b2c2962209eba8c6f05e4218490240cf145f647f6e5eb3f1b4ba09d85a"
+    },
+    "scripts/tests/test_preflight.py": {
+      "kit": "unattended",
+      "sha256": "c9fa33a086aef21519397b2e04dbd95fab204cd35b44e8e8bb068a383901ee3f"
+    },
     "scripts/tests/test_review_dispatch.py": {
       "kit": "reviewer",
       "sha256": "439dab5f41762ab3b42e732239ec077341865d3a97ab0844e1fdc7f345dd6527"
@@ -364,13 +412,37 @@
       "kit": "reviewer",
       "sha256": "1ba20bbcbc1eb5bc72675f55be116bc00987dcb3c590bf27367fa613ce898b2a"
     },
+    "scripts/tests/test_run.py": {
+      "kit": "unattended",
+      "sha256": "8a34ff6b42085ceeef2d3d6a8043c5693118b3b03cbf739e3952e71b32cc6706"
+    },
+    "scripts/tests/test_shortcut.py": {
+      "kit": "unattended",
+      "sha256": "1ec2cd4e011d567b51cabfb92bcbf4b12ae656c71d7fdd0a73d5d8a9dec9e19b"
+    },
     "scripts/tests/test_three_pass.py": {
       "kit": "reviewer",
       "sha256": "c3347fdad4338b49be79a7398f7d5a848b9ad2b01199d904943c7ec87eb98392"
     },
+    "scripts/tests/test_unattended.py": {
+      "kit": "unattended",
+      "sha256": "659e419177512fc859a052a504509eb02827bf2c620225eba9ca9d3d5a95ab78"
+    },
     "scripts/todo-graph.py": {
       "kit": "todo",
       "sha256": "f2d55663966071cfcee1a87a9d080c2b51623a2fd584dd9b09e0991b6b68f748"
+    },
+    "scripts/unattended-preflight.py": {
+      "kit": "unattended",
+      "sha256": "08e5db14a355565b07bc3913464170fcd212f9c8da0ecadde70557b73d53d495"
+    },
+    "scripts/unattended-run.py": {
+      "kit": "unattended",
+      "sha256": "acf2a17a01c118567e14321fcb037627cffbb73f0b655fdcb8314863225200e8"
+    },
+    "scripts/unattended-shortcut.ps1": {
+      "kit": "unattended",
+      "sha256": "7235ecfe5cf0f3082203813baf1f2a6fcdbf8c94f37de2c0172a47a528aa7e6b"
     },
     "scripts/verify-agent-tiers.mjs": {
       "kit": "base",
@@ -417,6 +489,15 @@
       "sdk_commit": "987052715b2056ffb5c2bde979a6325160c71b63"
     },
     "todo": {
+      "agents": [
+        "agy",
+        "claude",
+        "codex"
+      ],
+      "host": null,
+      "sdk_commit": "987052715b2056ffb5c2bde979a6325160c71b63"
+    },
+    "unattended": {
       "agents": [
         "agy",
         "claude",

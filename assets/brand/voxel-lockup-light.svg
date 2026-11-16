@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 160" role="img" aria-label="Voxel">
+  <g transform="translate(-41.6 -41.6) scale(0.95)">
+  <defs>
+    <mask id="voxel-mark-top" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+      <rect width="256" height="256" fill="#fff"/>
+      <ellipse cx="128" cy="88" rx="27" ry="13.5" fill="#000"/>
+    </mask>
+    <mask id="voxel-mark-mid" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+      <rect width="256" height="256" fill="#fff"/>
+      <path d="M128 53 L198 88 L128 123 L58 88 Z" fill="#000" stroke="#000" stroke-width="26" stroke-linejoin="round"/>
+    </mask>
+    <mask id="voxel-mark-low" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+      <rect width="256" height="256" fill="#fff"/>
+      <path d="M128 93 L198 128 L128 163 L58 128 Z" fill="#000" stroke="#000" stroke-width="26" stroke-linejoin="round"/>
+    </mask>
+  </defs>
+  <path d="M128 133 L198 168 L128 203 L58 168 Z" fill="#7A5200" stroke="#7A5200" stroke-width="8" stroke-linejoin="round" mask="url(#voxel-mark-low)"/>
+  <path d="M128 93 L198 128 L128 163 L58 128 Z" fill="#C48700" stroke="#C48700" stroke-width="8" stroke-linejoin="round" mask="url(#voxel-mark-mid)"/>
+  <path d="M128 53 L198 88 L128 123 L58 88 Z" fill="#FFB000" stroke="#FFB000" stroke-width="8" stroke-linejoin="round" mask="url(#voxel-mark-top)"/>
+</g>
+  <g transform="translate(200 30)">
+  <g fill="none" stroke="#17140F" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0 L42 100 L84 0"/>
+    <circle cx="168" cy="50" r="50"/>
+    <path d="M252 0 L332 100 M332 0 L252 100"/>
+    <path d="M366 0 H430 M366 100 H430"/>
+    <path d="M464 0 V100 H524"/>
+  </g>
+  <path d="M366 50 H420" fill="none" stroke="#B37400" stroke-width="12" stroke-linecap="round"/>
+</g>
+</svg>

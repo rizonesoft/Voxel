@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "name": null,
+  "agent": "claude",
+  "model": null,
+  "effort": null,
+  "prompt_file": "docs/unattended-prompt.md",
+  "branch": "main",
+  "skip_permissions": true,
+  "tools": ["git", "python3", "tmux"],
+  "min_disk_gb": 20,
+  "min_ram_gb": 2,
+  "tick_seconds": 300,
+  "idle_minutes": 45,
+  "stall_hours": 6,
+  "preflight": []
+}
