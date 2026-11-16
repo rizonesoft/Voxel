@@ -155,6 +155,7 @@ The largest stack risk is a compressed format `dicom-rs` cannot decode. This sec
 - [ ] Write `scripts/check.ps1`: run `cargo fmt --check`, `cargo clippy --all-targets -- -D warnings`, `cargo test --locked` and `python scripts/todo-graph.py validate` in order, stop at the first failure and return its exit code. Done when: `pwsh scripts/check.ps1` exits 0.
 - [ ] Prove `scripts/check.ps1` can fail: misformat a line in `src/lib.rs`, run it, then restore the line. Done when: the run with the fault exits non-zero and names `cargo fmt`.
 - [ ] Replace the "Nothing is built yet" sentence in the "Layout and commands" section of `AGENTS.md` with the working commands, naming `bosun run -- pwsh scripts/check.ps1` as the full check. Done when: every command in that section runs as written.
+- [ ] Add `.github/workflows/ci.yml` running on `windows-latest` for pushes to main and pull requests: `cargo fmt --check`, `cargo clippy --all-targets -- -D warnings` and `cargo test --locked`, with `VOXEL_FORCE_WARP=1` so GPU tests use the software adapter, and tests that need a desktop session skipped by the `display` cargo feature. Done when: the workflow's run on the section's commit is green (`python scripts/ci_status.py` prints it), and a commit with a clippy warning turns it red.
 - [ ] Commit: `workspace: one verify command`
 
 **Test checkpoint:** `bosun run -- pwsh scripts/check.ps1` exits 0 on a clean tree; with one misformatted line in `src/lib.rs` it exits non-zero.

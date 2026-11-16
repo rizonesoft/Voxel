@@ -1,0 +1,31 @@
+name: A file will not open, or looks wrong
+description: A DICOM file Voxel refuses, shows wrongly or measures wrongly
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Never attach a real patient's scan. Describe the file, or attach a synthetic or anonymised one.
+  - type: input
+    id: version
+    attributes:
+      label: Voxel version or commit
+    validations:
+      required: true
+  - type: input
+    id: kind
+    attributes:
+      label: What kind of image is it?
+      description: Modality (for example MR, DX, CR), manufacturer, and the transfer syntax if you know it
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: dropdown
+    id: interface
+    attributes:
+      label: Which interface were you using?
+      options: [Workstation, Lightbox, Console, It happens in all three]

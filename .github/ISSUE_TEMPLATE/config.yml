@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a security problem privately
+    url: https://github.com/rizonesoft/Voxel/security/advisories/new
+    about: A file that crashes Voxel or makes it misbehave is a security problem. Please do not report it in public.

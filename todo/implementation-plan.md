@@ -8,7 +8,7 @@ Format and rules: `todo/README.md`. Run sections with the `process-plan`, `proce
 
 ### Phase 0: Toolchain and workspace
 
-Sections: 6 | Checklist items: 40
+Sections: 6 | Checklist items: 41
 
 | Status | Reference  | Deliverable                                       | Needs                         | Items |
 | ------ | ---------- | ------------------------------------------------- | ----------------------------- | ----- |
@@ -16,7 +16,7 @@ Sections: 6 | Checklist items: 40
 | [ ]    | D00 T01 §2 | Dependency pins for the chosen stack              | windows-host                  | 7     |
 | [ ]    | D00 T01 §3 | Empty app window on DirectX 12 with WARP fallback | windows-host, display-session | 7     |
 | [ ]    | D00 T01 §4 | DICOM test corpus and codec coverage table        | windows-host                  | 7     |
-| [ ]    | D00 T01 §5 | Verify commands and their documentation           | windows-host                  | 5     |
+| [ ]    | D00 T01 §5 | Verify commands and their documentation           | windows-host                  | 6     |
 | [ ]    | D00 T01 §6 | Phantom series builder with known geometry        | none                          | 7     |
 
 ### Phase 1: First image: 2D X-ray viewing
@@ -113,4 +113,4 @@ Sections: 1 | Checklist items: 5
 
 Progress: 0/49 verified sections, 1 ready to run now.
 
-Checklist: 0/358 items completed (includes Commit items).
+Checklist: 0/359 items completed (includes Commit items).

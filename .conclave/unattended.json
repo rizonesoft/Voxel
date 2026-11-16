@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "name": null,
+  "name": "voxel",
   "agent": "claude",
-  "model": null,
-  "effort": null,
+  "model": "opus",
+  "effort": "medium",
   "prompt_file": "docs/unattended-prompt.md",
   "branch": "main",
   "skip_permissions": true,

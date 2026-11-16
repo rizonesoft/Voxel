@@ -1,0 +1,11 @@
+# Text is stored with LF and checked out as the platform likes, except where a tool needs LF.
+* text=auto
+scripts/hooks/pre-commit text eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.svg text eol=lf
+*.png binary
+*.ico binary
+*.ttf binary
+*.dcm binary
