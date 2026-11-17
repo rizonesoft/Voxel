@@ -200,7 +200,7 @@ class LoadProfileTest(unittest.TestCase):
                                   self.refused("effort", self.with_(agent="agy", model=model, effort=bad_effort)))
         for case in ({"agent": "agy", "model": "gemini-4-carbon-medium", "effort": None},
                      {"agent": "claude", "model": "gemini-pro-orchestrator", "effort": None},
-                     {"agent": "codex", "model": "gpt-6-astra", "effort": None}):
+                     {"agent": "codex", "model": "gpt-6.2-astra", "effort": None}):
             with self.subTest(case=case):
                 self.refused("effort", self.with_(**case))
         for bad_model in (" gemini-pro-orchestrator", "gemini-pro-orchestrator ", "gemini-pro-orchestrator-"):
@@ -279,7 +279,7 @@ class RunnersTest(unittest.TestCase):
     """D02 T02 §10: one profile, several runners (`start --agent`), each with its own model and effort."""
 
     RUNNERS = {"agy": {"model": "gemini-4-carbon-medium", "effort": "medium"},
-               "codex": {"model": "gpt-6-astra", "effort": "minimal"}}
+               "codex": {"model": "gpt-6.2-astra", "effort": "minimal"}}
 
     def setUp(self):
         self._tmp = tempfile.TemporaryDirectory()
@@ -319,7 +319,7 @@ class RunnersTest(unittest.TestCase):
     def test_an_orchestrator_runner_loads_with_null_effort_and_refuses_non_null(self):
         for model in ("gemini-pro-orchestrator", "gemini-pro-orchestrator-preview"):
             profile = self.load({"agy": {"model": model, "effort": None},
-                                 "codex": {"model": "gpt-6-astra", "effort": "minimal"}})
+                                 "codex": {"model": "gpt-6.2-astra", "effort": "minimal"}})
             self.assertEqual({k: unattended.runner(profile, "agy")[k] for k in ("agent", "model", "effort")},
                              {"agent": "agy", "model": model, "effort": None})
         top_orch = {**FIXTURE, "agent": "agy", "model": "gemini-pro-orchestrator", "effort": None,
