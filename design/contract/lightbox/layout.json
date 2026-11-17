@@ -8,6 +8,60 @@
  "controls": [
   {
    "kind": "button",
+   "label": "Minimise",
+   "key": null,
+   "tooltip": "Minimise",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1302,
+    0,
+    46,
+    32
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(183, 191, 200)",
+   "radius": "0px"
+  },
+  {
+   "kind": "button",
+   "label": "Maximise",
+   "key": null,
+   "tooltip": "Maximise",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1348,
+    0,
+    46,
+    32
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(183, 191, 200)",
+   "radius": "0px"
+  },
+  {
+   "kind": "button",
+   "label": "Close window",
+   "key": null,
+   "tooltip": "Close window",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1394,
+    0,
+    46,
+    32
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(183, 191, 200)",
+   "radius": "0px"
+  },
+  {
+   "kind": "button",
    "label": "Stack",
    "key": null,
    "tooltip": null,
@@ -416,19 +470,6 @@
    "size": "13px",
    "weight": "400",
    "ink": "rgb(183, 191, 200)"
-  },
-  {
-   "text": "– □ ×",
-   "rect": [
-    1333,
-    9,
-    95,
-    15
-   ],
-   "font": "IBM Plex Mono",
-   "size": "12px",
-   "weight": "400",
-   "ink": "rgb(151, 159, 170)"
   },
   {
    "text": "T2 axial · 18 of 36",

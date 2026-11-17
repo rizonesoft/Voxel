@@ -30,16 +30,19 @@ body{margin:0}
 .vx .mi{display:flex;width:100%;height:36px;align-items:center;padding:0 12px;border:0;background:transparent;border-radius:6px;font-size:14px;text-align:left}
 .vx .mi:hover{background:#37414b}
 .vx select,.vx input[type=text]{height:34px;border-radius:6px;border:1px solid #6f7c8a;background:#0e131a;color:#edf0f4;font:inherit;padding:0 10px;box-sizing:border-box}
+.vx .wb{width:46px;align-self:stretch;display:flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:0;background:transparent;color:#b7bfc8}
+.vx .wb:hover{background:#242d37;color:#edf0f4}
+.vx .wbx:hover{background:#fd736d;color:#04111c}
 </style>
 </helmet>
 <div class="vx">
 
-<div style="height: 36px; flex: none; display: flex; align-items: center; gap: 10px; padding: 0 12px; background: #0e131a; border-bottom: 1px solid #37414b">
+<div style="height: 36px; flex: none; display: flex; align-items: center; gap: 10px; padding: 0 0 0 12px; background: #0e131a; border-bottom: 1px solid #37414b">
 <svg aria-hidden="true" width="18" height="20" viewBox="52 40 152 176"><path d="M128 44 L200.7 86 L128 128 L55.3 86 Z" fill="#34c8fd"/><path d="M55.3 86 L128 128 L128 212 L55.3 170 Z" fill="#1a86b4"/><path d="M200.7 86 L200.7 170 L128 212 L128 128 Z" fill="#0f5778"/><path d="M128 128 L91.65 107 L128 86 L164.35 107 Z" fill="#edf0f4"/><path d="M128 128 L128 170 L91.65 149 L91.65 107 Z" fill="#a9e6fe"/><path d="M128 128 L164.35 107 L164.35 149 L128 170 Z" fill="#74d8fd"/></svg>
 <span style="font-weight: 600">Voxel</span>
 <span style="color: #979faa; font-size: 13px">{{ windowTitle }}</span>
 <span style="flex-grow: 1"></span>
-<span class="mono" style="color: #979faa; font-size: 12px; letter-spacing: 12px" aria-hidden="true">– □ ×</span>
+<span style="display: flex; align-self: stretch"><button class="wb" aria-label="Minimise" title="Minimise"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 6.5h9"/></svg></button><button class="wb" aria-label="Maximise" title="Maximise"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 1.5h9v9h-9z"/></svg></button><button class="wb wbx" aria-label="Close window" title="Close window"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 1.5l9 9M10.5 1.5l-9 9"/></svg></button></span>
 </div>
 
 <div style="height: 52px; flex: none; display: flex; align-items: center; gap: 2px; padding: 0 10px; background: #1b232c; border-bottom: 1px solid #37414b">

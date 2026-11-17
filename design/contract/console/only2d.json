@@ -15,7 +15,7 @@
    "value": null,
    "options": null,
    "rect": [
-    1189,
+    1168,
     5,
     124,
     34
@@ -23,6 +23,60 @@
    "fill": "rgba(0, 0, 0, 0)",
    "ink": "rgb(237, 240, 244)",
    "radius": "6px"
+  },
+  {
+   "kind": "button",
+   "label": "Minimise",
+   "key": null,
+   "tooltip": "Minimise",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1302,
+    0,
+    46,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(183, 191, 200)",
+   "radius": "0px"
+  },
+  {
+   "kind": "button",
+   "label": "Maximise",
+   "key": null,
+   "tooltip": "Maximise",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1348,
+    0,
+    46,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(183, 191, 200)",
+   "radius": "0px"
+  },
+  {
+   "kind": "button",
+   "label": "Close window",
+   "key": null,
+   "tooltip": "Close window",
+   "enabled": true,
+   "value": null,
+   "options": null,
+   "rect": [
+    1394,
+    0,
+    46,
+    44
+   ],
+   "fill": "rgba(0, 0, 0, 0)",
+   "ink": "rgb(183, 191, 200)",
+   "radius": "0px"
   },
   {
    "kind": "button",
@@ -500,7 +554,7 @@
   {
    "text": "More tools",
    "rect": [
-    1199,
+    1178,
     14,
     62,
     17
@@ -509,19 +563,6 @@
    "size": "13px",
    "weight": "400",
    "ink": "rgb(237, 240, 244)"
-  },
-  {
-   "text": "– □ ×",
-   "rect": [
-    1331,
-    15,
-    95,
-    15
-   ],
-   "font": "IBM Plex Mono",
-   "size": "12px",
-   "weight": "400",
-   "ink": "rgb(151, 159, 170)"
   },
   {
    "text": "Series",

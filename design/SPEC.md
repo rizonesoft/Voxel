@@ -54,6 +54,7 @@ Every interface has all 15. The name is the one in the file names.
 - **Image information** sits in the corners in `overlay` type with a dark halo, and orientation letters at the middle of each edge.
 - **The Settings, About and first-run windows are the same in every interface.**
 - **The phantom data** in the designs (patient "Phantom, Voxel", the five MR Brain series, the chest X-ray) is the fixture the contract tests load, built by `tests/common/phantom.rs`.
+- **The window buttons** (Minimise, Maximise, Close window) are the same in every interface: each `window-button` (46) wide and the full height of the bar, flush to the top right corner of the window, with a 12 pixel glyph drawn at 1.25 pixels in `ink-muted` on no fill. The owner set this size on 2026-11-17; the first design drew them as 12 pixel text, which was too small for the bar.
 - **Dark only.** Version 1 has one theme.
 
 ## Shortcuts
@@ -78,7 +79,7 @@ The layout radiology staff already know. Top to bottom at 1440 by 900:
 
 | Region | Size | Content |
 | ------ | ---- | ------- |
-| Title bar | 36 high, `surface-sunken` | Mark, "Voxel", the patient and study, window buttons |
+| Title bar | 36 high, `surface-sunken` | Mark, "Voxel", the patient and study, the window buttons |
 | Toolbar | 52 high, `surface` | Every control as icon and label, in groups split by hairlines; More tools switch and menu at the right |
 | Series strip | 240 wide, `ground` | Patient, study line, one card per series (64 pixel thumbnail, name, counts, "2D only" tag) |
 | Image area | the rest | One pane, 1 by 2, or MPR as 2 by 2 (axial, sagittal, coronal, 3D) |
@@ -93,7 +94,7 @@ The image fills the window and everything else floats on `glass`. The simplest f
 
 | Region | Size | Content |
 | ------ | ---- | ------- |
-| Title bar | 32 high | Mark, "Voxel", window buttons |
+| Title bar | 32 high | Mark, "Voxel", the window buttons |
 | Image area | everything below | One pane, 1 by 2, or MPR as one large axial pane with sagittal and coronal stacked at the right |
 | Study chip | 44 high pill, top left | Initials, patient, study line |
 | View switch | 44 high pill, top centre, clinician only | Stack, MPR, 3D |
@@ -109,7 +110,7 @@ Every setting and figure visible at once, in Conclave-style panels.
 
 | Region | Size | Content |
 | ------ | ---- | ------- |
-| Top bar | 44 high, `surface` | Mark, "Voxel", the path patient / study / series, More tools switch, window buttons |
+| Top bar | 44 high, `surface` | Mark, "Voxel", the path patient / study / series, More tools switch, the window buttons |
 | Rail | 56 wide, `surface` | Open, then Stack, MPR, 3D, then Overlay, Tags, Export, each a 44 pixel icon button; menu at the bottom. The active view has a `signal` bar on its left edge |
 | Series list | 212 wide | "Series" label with the count, one row per series (44 pixel thumbnail) |
 | Image area | the rest | As Workstation: one pane, 1 by 2, or MPR as 2 by 2 |
@@ -167,7 +168,7 @@ A screen passes only when every row passes. The image panes are excluded from th
 
 ## States the pictures do not show
 
-- **Hover:** a control's fill becomes `surface-raised` (`line` on glass); a card's border becomes `line-hover`.
+- **Hover:** a control's fill becomes `surface-raised` (`line` on glass); a card's border becomes `line-hover`. A window button's glyph becomes `ink` on `surface-raised`, except Close window, which becomes `on-signal` on `danger`.
 - **Pressed:** the fill becomes `line`, with no movement.
 - **Keyboard focus:** a 2 pixel `ground` gap then a 2 pixel `signal` ring, on every control.
 - **Active:** `signal-soft` fill with `signal-ink` text (Workstation, Console); solid `signal` with `on-signal` text (Lightbox).
